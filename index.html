@@ -1,0 +1,18 @@
+---
+layout: default
+title: Aaron Allen
+hero:
+  quote:
+    file: markdown/index_hero_quote.md
+  img: ''
+---
+<div class="index">
+  <section class="posts">
+    {% for post in site.posts limit:10 %}
+      {% include post_full.html post=post %}
+    {% endfor %}
+  </section>
+  <div class="archivesLink">
+    <a href="{{ site.url }}/archive">View The Archives</a>
+  </div>
+</div>

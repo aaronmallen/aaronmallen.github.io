@@ -1,0 +1,21 @@
+.content {
+  grid-area: content;
+  padding: 50px 50px;
+}
+
+.post {
+  &.-full {
+    display: grid;
+    grid-template-areas: "title"
+                         "metadata"
+                         "content";
+    grid-template-rows: 1fr 0.5fr auto;
+    margin-bottom: 100px;
+
+    .post__title {
+      display: grid;
+      grid-template-areas: "link postTitle";
+      grid-template-columns: 25px auto;
+    }
+  }
+}

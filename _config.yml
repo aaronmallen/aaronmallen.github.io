@@ -1,0 +1,25 @@
+twitter_username: aaronmallen
+github_username: aaronmallen
+url: http://www.aaronmallen.me
+permalink: /post/:slug
+paginate: 10
+markdown: kramdown
+kramdown:
+  input: GFM
+collections:
+  tag:
+    output: true
+    permalink: /:collection/:name
+defaults:
+  - scope:
+      path: ''
+      type: tag
+    values:
+      layout: tag
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+sass:
+  style: compressed

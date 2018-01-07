@@ -1,0 +1,9 @@
+{% if page.hero %}
+  {% assign header_class = '-withHero -dark' %}
+{% else %}
+  {% assign header_class = '-withoutHero' %}
+{% endif %}
+<header class="header {{ header_class }}">
+  {% include navigation.html %}
+  {% if page.hero %}{% include hero.html %}{% endif %}
+</header>

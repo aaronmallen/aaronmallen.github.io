@@ -1,0 +1,16 @@
+{% capture quote_content_from_file %}
+  {% if page.hero.quote.file %}
+    {% include {{ page.hero.quote.file }} %}
+  {% endif %}
+{% endcapture %}
+<div class="header__hero">
+  <h1>
+    {% if page.hero.quote.file %}
+      {{ quote_content_from_file | markdownify }}
+    {% elsif page.hero.quote.html %}
+      {{ page.hero.quote.html | raw }}
+    {% else %}
+      {{ page.hero.quote.content }}
+    {% endif %}
+  </h1>
+</div>

@@ -1,0 +1,25 @@
+<article class="post -full">
+  <div class="post__title">
+    <a class="title_link" href="{{ post.url }}">
+      <i class="fas fa-link"></i>
+    </a>
+    <span class="title__content">
+      <h2>{{ post.title }}</h2>
+    </span>
+  </div>
+  <div class="post__metadata">
+    <div class="metadata__date">
+      {{ post.date | date: "%B %-d, %Y" }}
+    </div>
+    <div class="metadata__tags">
+      {% for tag in post.tags %}
+        <a class="tag__link" href="{{ site.url }}/tag/{{ tag }}">
+          {{ tag }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="post__content">
+    {{ post.content }}
+  </div>
+</article>
