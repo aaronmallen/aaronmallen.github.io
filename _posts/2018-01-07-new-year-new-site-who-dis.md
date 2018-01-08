@@ -12,6 +12,7 @@ Before you ask, yes this site design is __heavily__ inspired by [Yehuda Katz's S
 pretending I was a [designer](http://www.dribbble.com/aaronmallen) a long time ago.
 
 > Imitation is the sincerest form of flattery that mediocrity can pay to greatness.
+>
 > -Oscar Wilde
 
 That being said, I am new to this whole blogging thing.  It would be remiss of me to go without warning my audience
@@ -19,6 +20,7 @@ that grammar and spelling are not my strongest traits. Definitely expect a gramm
 however, if we can get past that aspect of blogging I am excited to share the developer experience with the internet.
 
 > Who the heck are you, and why in the world would I be interested in what you have to say?
+>
 > -You The Reader
 
 ### Introductions
