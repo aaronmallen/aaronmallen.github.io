@@ -1,0 +1,50 @@
+.footer {
+  display: grid;
+  grid-area: footer;
+  grid-template-areas: "links"
+                       "copyright";
+  grid-template-rows: 1fr 1fr;
+  text-align: center;
+
+  .footer__links {
+    grid-area: links;
+  }
+
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .links__item {
+    display: inline-block;
+  }
+
+  .item__link {
+    color: $grey;
+
+    &.-twitter {
+      &:hover {
+        color: $twitter;
+      }
+    }
+
+    &.-linkedin {
+      &:hover {
+        color: $linkedin;
+      }
+    }
+
+    &.-github {
+      &:hover {
+        color: $github;
+      }
+    }
+  }
+
+  .footer__copyright {
+    grid-area: copyright;
+    color: $grey;
+    font-size: 60%;
+  }
+}

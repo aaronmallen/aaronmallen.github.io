@@ -1,0 +1,16 @@
+{% assign page_links = "About,Contact" | split: ',' %}
+<ul class="menu__nav">
+  <li class="nav__item">
+    <a href="{{ site.url }}" class="item__link">Home</a>
+  </li>
+  <!-- TODO: uncomment this once pages are done. -->
+  <!-- {% for page_link in page_links %}
+    {% if page.title == page_link %}{% assign active_class = ' -active' %}{% endif %}
+    {% if page.title != page_link %}{% assign active_class = '' %}{% endif %}
+    <li class="nav__item {{ active_class }}">
+      <a href="{{ site.url }}/{{ page_link | downcase }}" class="item__link{{ active_class }}">
+        {{ page_link }}
+      </a>
+    </li>
+  {% endfor %} -->
+</ul>

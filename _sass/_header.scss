@@ -1,117 +1,62 @@
 .header {
+  border-bottom: 1px solid $lightGrey;
   display: grid;
   grid-area: header;
+  grid-template-areas: "brand navigation";
+  grid-template-columns: minmax(40px, 90px) 1fr;
+  height: 44px;
+}
+
+.header__logo {
+  grid-area: brand;
+}
+
+.logo__link {
+  cursor: pointer;
+  height: 100%;
   width: 100%;
 
-  &.-withHero {
-    grid-template-areas: "navigation"
-                         "hero";
-    grid-template-rows: 60px auto;
-  }
-
-  &.-withoutHero {
-    grid-template-areas: "navigation";
-    grid-template-rows: 60px;
-  }
-
-  &.-dark{
-    background: $black;
-    color: $white;
-
-    .item__link {
-      color: $white;
-    }
-
-    .brand__logo {
-      background-color: $white;
-      border-radius: 100%;
-    }
-
-    .item__link.-cta {
-      background-color: transparent;
-      border: 2px solid $white;
-
-      &:hover {
-        background-color: transparent;
-        border-bottom: 2px solid;
-        border-color: $blue;
-      }
-    }
-  }
-
-  .header__nav {
-    grid-area: navigation;
-  }
-
-  .header__hero {
-    border-bottom: 8px solid darken($black, 5%);
-    grid-area: hero;
-    margin-top: 25px;
-    padding: 15px 50px;
-    width: 100%;
-
-    pre {
-      background: transparent;
-    }
-  }
-
-
-  .nav {
-    display: grid;
-    grid-template-areas: "brand links";
-    grid-template-columns: repeat(2, 50%);
-    line-height: 60px;
-  }
-
-  .nav__brand {
-    grid-area: brand;
-    margin-left: 50px;
-  }
-
-  .nav__links {
-    grid-area: links;
-    margin-right: 32px;
-    text-align: right;
-  }
-
-  .brand__logo {
+  .logo__img {
     background: url('/assets/img/logo.svg') center center no-repeat;
-    background-size: 35px 35px;
-    display: block;
-    margin-top: 10px;
-    height: 40px;
-    width: 40px;
+    background-size: 44px 44px;
+    height: 100%;
   }
+}
 
-  .links {
+.header__menu {
+  grid-area: navigation;
+  text-align: right;
+
+  .menu__nav {
+    height: 100%;
+    line-height: 42px;
     list-style: none;
     margin: 0;
 
-    .links__item {
+    .nav__item {
       display: inline-block;
-    }
-  }
+      font-size: 75%;
+      margin: 0 10px;
+      padding: 0 5px;
 
-  .item__link {
-    color: $black;
-    padding: 7px 10px;
-    margin: 0 10px;
-    text-decoration: none;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      border-bottom: 2px solid $blue;
-    }
-
-    &.-cta {
-      background: $blue;
-      border-radius: 2px;
-      color: $white;
-
-      &:hover {
-        background: darken($blue, 15%);
-        border-bottom: none;
+      &.-active {
+        border-bottom: 1px inset $black;
       }
     }
+  }
+}
+
+.item__link {
+  color: $grey;
+  display: block;
+  height: 100%;
+  text-decoration: none;
+
+  &:hover {
+    color: $black;
+  }
+
+  &.-active {
+    color: $black;
   }
 }
