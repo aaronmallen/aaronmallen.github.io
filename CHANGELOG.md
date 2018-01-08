@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.1.1] - 2018-01-08
+
 ### Added
 * [#2](https://github.com/aaronmallen/aaronmallen.github.io/issues/2): This CHANGELOG
 
@@ -19,4 +21,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## 0.1.0 - 2018-01-07
 * Generated initial Jekyll site.
 
-[Unreleased]: https://github.com/eve-savvy/eve-mail/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/eve-savvy/eve-mail/compare/v0.1.1...develop
+[0.1.1]: https://github.com/eve-savvy/eve-mail/compare/v0.1.0...v0.1.1
