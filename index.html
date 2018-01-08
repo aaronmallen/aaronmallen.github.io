@@ -5,7 +5,7 @@ subtitle: The musings of a software engineer building things for the web.
 ---
 <section class="posts">
   {% for post in paginator.posts %}
-    <article class="post">
+    <article class="posts__post">
       <h4 class="post__date">{{ post.date | date: "%B %-d, %Y"}}</h4>
       <h2 class="post__title"><a href="{{ post.url }}" class="title__link">{{ post.title }}</a></h2>
       <span class="post__summary">
@@ -18,21 +18,26 @@ subtitle: The musings of a software engineer building things for the web.
     </article>
   {% endfor %}
   <section class="paginator">
-    {% if paginator.previous_page %}
-      <div class="paginator__previous">
-        <a class="paginator__link" href="{{ paginator.previous_page_path }}">
-          <i class="fas fa-chevron-left"></i>
-          <span>Newer Posts</span>
-        </a>
-      </div>
-    {% endif %}
-    {% if paginator.next_page %}
-      <div class="paginator__next">
-        <a class="paginator__link" href="{{ paginator.next_page_path }}">
-          <span>Older Posts</span>
-          <i class="fas fa-chevron-right"></i>
-        </a>
-      </div>
-    {% endif %}
+    <div class="paginator__previous">
+      {% if paginator.previous_page %}
+      <a class="paginator__link" href="{{ paginator.previous_page_path }}">
+        <i class="fas fa-chevron-left"></i>
+        <span>Newer Posts</span>
+      </a>
+      {% endif %}
+    </div>
+    <div class="paginator__pages">
+      {% if paginator.total_pages > 1 %}
+        <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      {% endif %}
+    </div>
+    <div class="paginator__next">
+      {% if paginator.next_page %}
+      <a class="paginator__link" href="{{ paginator.next_page_path }}">
+        <span>Older Posts</span>
+        <i class="fas fa-chevron-right"></i>
+      </a>
+      {% endif %}
+    </div>
   </section>
 </section>
