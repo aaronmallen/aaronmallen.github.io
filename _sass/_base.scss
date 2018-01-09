@@ -141,10 +141,18 @@ pre {
 }
 
 .title__sub,
-.title__date {
+.title__meta {
+  color: $grey;
   font-family: $fontFamilyFira;
   font-size: 100%;
   font-weight: normal;
+}
+
+.meta__date {
+  &:after {
+    content: '•';
+    padding: 0 0 0 15px;
+  }
 }
 
 @media only screen and (max-width: $phoneBreakpointPortrait) {

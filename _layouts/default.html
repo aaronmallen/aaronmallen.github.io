@@ -1,16 +1,6 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="description" content="">
-    <link rel="icon" type="image/x-icon" href="{{ site.url }}/favicon">
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/syntax.css">
-    <link rel="stylesheet" type="text/css" href="{{ site.url }}/assets/css/main.css">
-    <script>FontAwesomeConfig = { searchPseudoElements: true };</script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
-  </head>
+  {% include head.html %}
   <body>
     <!--[if lte IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -22,8 +12,6 @@
           <h1 class="title__main">{{ page.title }}</h1>
           {% if page.subtitle %}
             <h2 class="title__sub">{{ page.subtitle }}</h2>
-          {% else %}
-            <h4 class="title__date">{{ page.date | date: "%B %-d, %Y" }}</h4>
           {% endif %}
         </section>
         <section class="pageContent__content">
@@ -33,16 +21,6 @@
       {% include footer.html %}
     </main>
     {% include side-nav.html %}
-    <script type="text/javascript" src="{{site.url}}/assets/javascript/anchor-js/anchor.min.js"></script>
-    <script type="text/javascript" src="{{site.url}}/assets/javascript/sidenav/sidenav.min.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112168322-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-112168322-1');
-    </script>
+    {% include global-scripts.html %}
   </body>
 </html>
