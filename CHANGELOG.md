@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+* [#11](https://github.com/aaronmallen/aaronmallen.github.io/issues/11): Added readtime to posts.
+
 ### Fixed
 * [#12](https://github.com/aaronmallen/aaronmallen.github.io/issues/12): Use absolute link for favicon.
 
