@@ -1,0 +1,10 @@
+.twitter-tweet {
+  margin: 0 auto;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: block;
+    height: 40px;
+  }
+}
