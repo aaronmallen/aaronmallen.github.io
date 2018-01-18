@@ -79,17 +79,6 @@ pre {
   text-align: right;
 }
 
-@media only screen and (max-width: $phoneBreakpointPortrait) {
-  .header {
-    grid-template-areas: "brand";
-    grid-template-columns: 90px;
-  }
-
-  .header__menu {
-    display: none;
-  }
-}
-
 .menu__nav {
   height: 100%;
   line-height: 44px;
@@ -152,12 +141,6 @@ pre {
   &:after {
     content: '•';
     padding: 0 0 0 15px;
-  }
-}
-
-@media only screen and (max-width: $phoneBreakpointPortrait) {
-  .pageContent__title {
-    margin: 25px 0 25px 0;
   }
 }
 
@@ -309,5 +292,24 @@ pre {
     &.-active {
       border-bottom: 0px;
     }
+  }
+}
+
+@media only screen and (max-width: $phoneBreakpointPortrait) {
+  .header {
+    grid-template-areas: "brand";
+    grid-template-columns: 90px;
+  }
+
+  .header__menu {
+    display: none;
+  }
+  
+  .pageContent {
+    width: 90%;
+  }
+
+  .pageContent__title {
+    margin: 25px 0 25px 0;
   }
 }
