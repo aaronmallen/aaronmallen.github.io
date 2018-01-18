@@ -7,9 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Added
+## [0.1.4] - 2018-01-17
 
+### Added
 * [#8](https://github.com/aaronmallen/aaronmallen.github.io/issues/8): mobile friendly styling.
+
+### Changed
+* Only track analytics in production.
 
 ## [0.1.3] - 2018-01-08
 
@@ -38,7 +42,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## 0.1.0 - 2018-01-07
 * Generated initial Jekyll site.
 
-[Unreleased]: https://github.com/aaronmallen/aaronmallen.github.io/compare/v0.1.3...develop
+[Unreleased]: https://github.com/aaronmallen/aaronmallen.github.io/compare/v0.1.4...develop
+[0.1.4]: https://github.com/aaronmallen/aaronmallen.github.io/compare/v0.1.3...v0.1.4
 [0.1.3]: https://github.com/aaronmallen/aaronmallen.github.io/compare/v0.1.2...v0.1.3
 [0.1.2]: https://github.com/aaronmallen/aaronmallen.github.io/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/aaronmallen/aaronmallen.github.io/compare/v0.1.0...v0.1.1
