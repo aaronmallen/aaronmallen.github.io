@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+* [#8](https://github.com/aaronmallen/aaronmallen.github.io/issues/8): mobile friendly styling.
+
 ## [0.1.3] - 2018-01-08
 
 ### Added
