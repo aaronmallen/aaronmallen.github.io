@@ -2,6 +2,7 @@
 title: ActiveInteractor
 author: Aaron Allen <hello@aaronmallen.me>
 tweet: 'An implementation of the Command Pattern for Ruby with ActiveModel::Validations based on the interactors gem. Rich support for attributes, callbacks, and validations, and thread safe performance methods.'
+layout: default
 ---
 
 This weekend I released v1.0.0 of [ActiveInteractor], an implementation of the [command pattern] for Ruby with [ActiveModel::Validations] based on the [interactor] gem with rich support for attributes, callbacks, and validations, and thread safe performance methods.

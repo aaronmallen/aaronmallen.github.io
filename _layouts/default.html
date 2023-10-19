@@ -1,26 +1,7 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}" class="h-full w-full">
   {% include head.html %}
-  <body>
-    <!--[if lte IE 9]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-    <main id="sidenavTarget" class="main">
-      {% include header.html %}
-      <section class="pageContent">
-        <section class="pageContent__title">
-          <h1 class="title__main">{{ page.title }}</h1>
-          {% if page.subtitle %}
-            <h2 class="title__sub">{{ page.subtitle }}</h2>
-          {% endif %}
-        </section>
-        <section class="pageContent__content">
-          {{ content }}
-        </section>
-      </section>
-      {% include footer.html %}
-    </main>
-    {% include side-nav.html %}
-    {% include global-scripts.html %}
+  <body class="h-full w-full">
+    {{ content }}
   </body>
 </html>

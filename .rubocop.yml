@@ -1,0 +1,7 @@
+inherit_from:
+  - .rubocop/base.yml
+  - .rubocop/jekyll.yml
+  - .rubocop/layout.yml
+  - .rubocop/metrics.yml
+  - .rubocop/performance.yml
+  - .rubocop/style.yml

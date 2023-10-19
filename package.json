@@ -1,0 +1,55 @@
+{
+  "name": "aaronmallen.github.io",
+  "version": "0.2.0",
+  "description": "My personal blog site",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npm run _tw -- --jti -i ./src/tailwind.css -o ./_sass/_tailwind.scss",
+    "build:css:watch": "npm run build:css -- --watch",
+    "build:js": "babel src -o assets/js/app.js --config-file ./config/.babelrc --minified --compact --source-maps",
+    "format": "npm run _prettier -- --write src/",
+    "lint": "npm run _eslint -- . --ext .vue,.js,.jsx,.cjs,.mjs",
+    "lint:fix": "npm run format && npm run lint -- --fix",
+    "_eslint": "eslint --config ./config/.eslintrc.cjs --ignore-path .gitignore",
+    "_prettier": "prettier --config ./config/.prettierrc.json",
+    "_tw": "tailwind --config ./config/tailwind.config.js --postcss ./config/postcss.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronmallen/aaronmallen.github.io.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Aaron Allen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaronmallen/aaronmallen.github.io/issues"
+  },
+  "homepage": "https://github.com/aaronmallen/aaronmallen.github.io#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/pro-duotone-svg-icons": "^6.4.2",
+    "@fortawesome/pro-light-svg-icons": "^6.4.2",
+    "@fortawesome/pro-regular-svg-icons": "^6.4.2",
+    "@fortawesome/pro-solid-svg-icons": "^6.4.2",
+    "@fortawesome/pro-thin-svg-icons": "^6.4.2",
+    "@fortawesome/sharp-light-svg-icons": "^6.4.2",
+    "@fortawesome/sharp-regular-svg-icons": "^6.4.2",
+    "@fortawesome/sharp-solid-svg-icons": "^6.4.2",
+    "autoprefixer": "^10.4.16",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^3.0.3",
+    "tailwindcss": "^3.3.3"
+  }
+}

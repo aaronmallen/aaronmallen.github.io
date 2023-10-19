@@ -3,6 +3,7 @@ title: New Year, New Site, Who Dis?
 author: Aaron Allen <hello@aaronmallen.me>
 tweet: 'This year I have decided to embark on the adventure of blogging about my experiences and things I learn as
         I build software'
+layout: default
 ---
 
 This year I have decided to embark on the adventure of blogging about my experiences and things I learn as I build

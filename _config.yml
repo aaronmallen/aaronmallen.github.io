@@ -1,16 +1,12 @@
-twitter_username: aaronmallen
-github_username: aaronmallen
-url: http://www.aaronmallen.me
-permalink: pretty
-paginate: 10
-markdown: kramdown
-kramdown:
-  input: GFM
+url: https://aaronmallen.me
+baseurl: ''
+title: Aaron Allen
+plugins:
+  - jekyll-feed
+  - jekyll-inline-svg
 exclude:
-  - CNAME
-  - Gemfile
-  - Gemfile.lock
   - README.md
-  - CHANGELOG.md
-sass:
-  style: compressed
+  - assets/css/_*.css
+  - src
+svg:
+  optimize: true
