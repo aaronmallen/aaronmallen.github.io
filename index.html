@@ -1,53 +1,14 @@
 ---
 layout: default
-title: Aaron Allen
-subtitle: The musings of a software engineer building things for the web.
+title: Under Construction
 ---
-<section class="posts">
-  {% for post in paginator.posts %}
-    <article class="posts__post">
-      <h4 class="post__date">
-        <time class="meta__date">{{ post.date | date: "%B %-d, %Y"}}</time>
-        <span class="meta__readtime">
-          {% assign words = post.content | number_of_words %}
-          {% if words < 360 %}
-            1 min
-          {% else %}
-            {{ words | divided_by:180 }} mins
-          {% endif %}
-        </span>
-      </h4>
-      <h2 class="post__title"><a href="{{ post.url }}" class="title__link">{{ post.title }}</a></h2>
-      <span class="post__summary">
-        {% if post.tweet %}
-          {{ post.tweet }}...
-        {% else %}
-          {{ post.content | truncate: 140 }}
-        {% endif %}
-      </span>
-    </article>
-  {% endfor %}
-  <section class="paginator">
-    <div class="paginator__previous">
-      {% if paginator.previous_page %}
-      <a class="paginator__link" href="{{ paginator.previous_page_path }}">
-        <i class="fas fa-chevron-left"></i>
-        <span>Newer Posts</span>
-      </a>
-      {% endif %}
+<div class="h-full w-full flex items-center justify-center">
+  <div class="grid grid-cols-1 grid-rows-2 text-center">
+    <div class="grid-flow-row">
+      {% svg "/assets/images/logo.svg" class="inline" %}
     </div>
-    <div class="paginator__pages">
-      {% if paginator.total_pages > 1 %}
-        <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-      {% endif %}
+    <div class="grid-flow-row">
+      <h1 class="text-4xl">Coming Soon</h1>
     </div>
-    <div class="paginator__next">
-      {% if paginator.next_page %}
-      <a class="paginator__link" href="{{ paginator.next_page_path }}">
-        <span>Older Posts</span>
-        <i class="fas fa-chevron-right"></i>
-      </a>
-      {% endif %}
-    </div>
-  </section>
-</section>
+  </div>
+</div>

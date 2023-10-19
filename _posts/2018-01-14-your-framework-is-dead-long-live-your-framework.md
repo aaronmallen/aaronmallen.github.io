@@ -2,6 +2,7 @@
 title: Your Framework is Dead; Long Live Your Framework
 author: Aaron Allen <hello@aaronmallen.me>
 tweet: Lets put to rest the idea that framework or language superiority is a thing
+layout: default
 ---
 
 Let me preface this with the fact that I am primarily a Rails Developer.  Inherently this typically means I have a lot of respect for [David Heinemeier Hansson (DHH)][1] both as an engineer and as a person.  That being said, a few months ago I saw him perpetuate an ongoing issue in the developer community and it made my heart sink a little bit.
