@@ -5,8 +5,8 @@ plugins:
   - jekyll-feed
   - jekyll-inline-svg
 exclude:
+  - config
   - README.md
-  - assets/css/_*.css
   - src
 svg:
   optimize: true
