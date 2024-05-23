@@ -1,12 +1,21 @@
-url: https://aaronmallen.me
-baseurl: ''
 title: Aaron Allen
+email: hello@aaronmallen.me
+baseurl: ''
+url: https://www.aaronmallen.me
+twitter_username: aaronmallen
+github_username: aaronmallen
 plugins:
   - jekyll-feed
   - jekyll-inline-svg
+  - jekyll-minifier
+  - jekyll-sitemap
 exclude:
-  - config
+  - config/
+  - LICENSE
+  - package.json
+  - package-lock.json
+  - node_modules/
   - README.md
-  - src
-svg:
-  optimize: true
+jekyll-minifier:
+  uglifier_args:
+    harmony: true

@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang='{{ site.lang | default: "en-US" }}' class='scroll-smooth'>
+  {% include head.html %}
+  <body class='min-h-screen'>
+    {% include main-nav.html %}
+    <div class='pt-[100px] max-w-screen-xl mx-auto'>
+      <article class='prose-xl w-full'>
+        <h1 class='text-daisy-bush mb-0'>{{ page.title }}</h1>
+        {{ page.content }}
+      </article>
+    </div>
+  </body>
+</html>

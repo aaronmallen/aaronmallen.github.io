@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}" class="h-full w-full">
+<!doctype html>
+<html lang='{{ site.lang | default: "en-US" }}' class='scroll-smooth'>
   {% include head.html %}
-  <body class="h-full w-full">
+  <body class='min-h-screen'>
+    {% include main-nav.html %}
     {{ content }}
   </body>
 </html>
