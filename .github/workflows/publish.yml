@@ -38,6 +38,8 @@ jobs:
           npm install
           npm run build:css
       - name: Build docs
+        env:
+          JEKYLL_ENV: production
         run: bundle exec jekyll build
       - name: Setup Pages
         uses: actions/configure-pages@v5
