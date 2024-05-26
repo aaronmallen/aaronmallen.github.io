@@ -1,0 +1,48 @@
+- company: Root Insurance
+  logo: /assets/images/root-insurance-logo.png
+  website: https://www.joinroot.com
+  title: Senior Software Engineer
+  start_date: June 2024
+  end_date: Present
+  description:
+  skills:
+    - Ruby
+    - Ruby On Rails
+
+- company: StreetEasy
+  logo: /assets/images/streeteasy-logo.png
+  website: https://streeteasy.com
+  title: Senior Software Development Engineer
+  start_date: April 2018
+  end_date: March 2024
+  description: >-
+    At Zillow Group, I led the migration of StreetEasy to a Commands and Queries pattern within Rails and spearheaded the
+    consolidation of NakedApartments into StreetEasy. I developed SSO authentication for Java services, led the transition
+    from Rails monolith to Java Micronaut services, and created the Industry Experts Program subscription system.
+  skills:
+    - Ruby
+    - Ruby On Rails
+    - Javascript
+    - React
+    - GraphQL
+    - Apollo
+    - MySQL
+    - Java
+
+- company: Moxie Software
+  logo: /assets/images/moxie-software-logo.png
+  website: https://www.linkedin.com/company/gomoxie
+  title: Junior Software Engineer
+  start_date: April 2015
+  end_date: April 2018
+  description: >-
+    At Moxie, I played a major role in developing a Ruby on Rails Knowledge Base application. I led the exploration into
+    Natural Language Processing and machine learning technologies and optimized UI components across products through the
+    development of an Angular 1.x application.
+  skills:
+    - Ruby
+    - Ruby On Rails
+    - JavaScript
+    - AngularJS
+    - Python
+    - NLP

@@ -1,0 +1,48 @@
+{% assign title = page.title | default: layout.title %}
+{% capture tweet_by %} by @{{ site.author.twitter }}{% endcapture %}
+{% capture thread_by %} by @{{ site.author.threads }}{% endcapture %}
+{% assign share_url = site.url | append: page.url | url_encode %}
+{% assign tweet_hashtags = page.tweet_hashtags || '' | split: "," %}
+{% capture tweet_hashtags_output %}&hashtags={{ tweet_hashtags | array_to_sentence_string: "," | remove: " " }}{% endcapture %}
+
+<div class='flex w-full flex-col items-center justify-center'>
+  <p class='p-4 text-sm text-gray-400'>Share this</p>
+  <div class='mb-4 flex flex-row space-x-2'>
+    <a
+      rel='noopener'
+      target='_blank'
+      href='https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}&title={{ title | url_encode }}'
+      class='text-slate-400 hover:text-slate-900'
+      aria-label='Share on LinkedIn'
+    >
+      <i class='fa-brands fa-linkedin fa-xl' aria-hidden='true' title='LinkedIn'></i>
+    </a>
+    <a
+      rel='noopener'
+      target='_blank'
+      href='https://twitter.com/intent/tweet?url={{ share_url }}&text={{ title | append: tweet_by | url_encode }}{{ tweet_hashtags_output }}'
+      class='text-slate-400 hover:text-slate-900'
+      aria-label='Share on Twitter'
+    >
+      <i class='fa-brands fa-x-twitter fa-xl' aria-hidden='true' title='Twitter'></i>
+    </a>
+    <a
+      rel='noopener'
+      target='_blank'
+      href='https://www.threads.net/intent/post?text={{ title | append: thread_by | url_encode }}%20{{ share_url }}'
+      class='text-slate-400 hover:text-slate-900'
+      aria-label='Share on Threads'
+    >
+      <i class='fa-brands fa-threads fa-xl' aria-hidden='true' title='Threads'></i>
+    </a>
+    <a
+      rel='noopener'
+      target='_blank'
+      href='mailto:?subject={{title | append: ' By Aaron Allen' | url_encode}}&body=Check out this article: {{ share_url }}'
+      class='text-slate-400 hover:text-slate-900'
+      aria-label='Share via Email'
+    >
+      <i class='fa-regular fa-envelope fa-xl' aria-hidden='true' title='Email'></i>
+    </a>
+  </div>
+</div>

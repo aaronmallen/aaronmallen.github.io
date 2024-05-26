@@ -4,4 +4,4 @@ _site
 .jekyll-metadata
 vendor
 node_modules
-_sass/_tailwind.scss
+assets/css/main.css

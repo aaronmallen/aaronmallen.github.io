@@ -1,11 +1,24 @@
-- icon: fa-github
+- name: GitHub
+  icon: fa-github
   link: https://www.github.com/aaronmallen
+  aria_label: Aaron Allen's GitHub Profile
 
-- icon: fa-linkedin
+- name: LinkedIn
+  icon: fa-linkedin
   link: https://www.linkedin.com/in/aaronmallen
+  aria_label: Aaron Allen's LinkedIn Profile
 
-- icon: fa-x-twitter
+- name: Twitter
+  icon: fa-x-twitter
   link: https://www.twitter.com/aaronmallen
+  aria_label: Aaron Allen's Twitter Profile
 
-- icon: fa-instagram
+- name: Instagram
+  icon: fa-instagram
   link: https://www.instagram.com/aaronmallen4
+  aria_label: Aaron Allen's Instagram Profile
+
+- name: Threads
+  icon: fa-threads
+  link: https://www.threads.net/@aaronmallen4
+  aria_label: Aaron Allen's Threads Profile

@@ -8,10 +8,23 @@
       {{ site.title }}
     {% endif %}
   </title>
-  <link rel='icon' href='/assets/images/logo.svg'>
-  <link rel='mask-icon' href='/assets/images/logo.svg' color='#000000'>
+  {% seo title=false %}
+  <link rel='icon' href='/assets/images/favicon.svg'>
+  <link rel='mask-icon' href='/assets/images/favicon.svg' color='#FFFFFF'>
   <meta name='theme-color' content='#ffffff'>
   <link rel='stylesheet' href='{{ "/assets/css/main.css" | relative_url }}'>
-  <script src='/assets/javascript/main.js'></script>
   <script src='https://kit.fontawesome.com/fe99ca8d39.js' crossorigin='anonymous'></script>
 </head>
+{% if jekyll.environment == 'production' %}
+  <!-- Google tag (gtag.js) -->
+  <script async src='https://www.googletagmanager.com/gtag/js?id=G-PKVN95N4SH'></script>
+  <script>
+    window.dataLayer = window.dataLayer || []
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+    gtag('js', new Date())
+
+    gtag('config', 'G-PKVN95N4SH')
+  </script>
+{% endif %}

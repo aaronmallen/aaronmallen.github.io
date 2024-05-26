@@ -2,13 +2,21 @@
 title: ActiveInteractor
 author: Aaron Allen <hello@aaronmallen.me>
 layout: post
+tweet_hashtags: activeinteractor, ruby
 ---
 
-This weekend I released v1.0.0 of [ActiveInteractor], an implementation of the [command pattern] for Ruby with [ActiveModel::Validations] based on the [interactor] gem with rich support for attributes, callbacks, and validations, and thread safe performance methods.
+This weekend I released v1.0.0 of [ActiveInteractor], an implementation of the [command pattern] for Ruby with
+[ActiveModel::Validations] based on the [interactor] gem with rich support for attributes, callbacks, and validations, and
+thread safe performance methods.
 
-I wanted to go over some of the basic usage of the gem. An interactor is a simple, single-purpose service object. Interactors can be used to reduce the responsibility of your controllers, workers, and models and encapsulate your application's [business logic]. Each interactor represents one thing that your application does.
+I wanted to go over some of the basic usage of the gem. An interactor is a simple, single-purpose service object.
+Interactors can be used to reduce the responsibility of your controllers, workers, and models and encapsulate your
+application's [business logic]. Each interactor represents one thing that your application does.
 
-ActiveInteractor's main component is called an interactor, each interactor has it's own immutable context which contains everything the interactor needs to do its work. When an interactor does its single purpose, it affects its given context. There are two kinds of interactors built into ActiveInteractor: basic interactors and organizers. A basic interactor is a class that inherits from `ActiveInteractor::Base` and defines a `#perform` method.
+ActiveInteractor's main component is called an interactor, each interactor has it's own immutable context which contains
+everything the interactor needs to do its work. When an interactor does its single purpose, it affects its given context.
+There are two kinds of interactors built into ActiveInteractor: basic interactors and organizers. A basic interactor is a
+class that inherits from `ActiveInteractor::Base` and defines a `#perform` method.
 
 ## Basic Usage
 
@@ -131,7 +139,8 @@ class OrdersController < ApplicationController
 end
 ```
 
-The organizer passes its context to the interactors that it organizes, one at a time and in order. Each interactor may change that context before it's passed along to the next interactor.
+The organizer passes its context to the interactors that it organizes, one at a time and in order. Each interactor may
+change that context before it's passed along to the next interactor.
 
 ### Organizing Interactors Conditionally
 
@@ -155,13 +164,16 @@ end
 
 ## Working With Rails
 
-If you're working with a rails project ActiveInteractor comes bundled with some useful generators to help speed up development. You should first run the install generator with:
+If you're working with a rails project ActiveInteractor comes bundled with some useful generators to help speed up
+development. You should first run the install generator with:
 
-```
+```sh
 rails generate active_interactor:install
 ```
 
-In some instances you may want to use an `ActiveRecord` model as a context for an interactor. You can do this by calling the `.acts_as_context` method on any `ActiveRecord` model, and then simply call the `.contextualize_with` method on your interactor or organizer to point it to the appropriate class.
+In some instances you may want to use an `ActiveRecord` model as a context for an interactor. You can do this by calling
+the `.acts_as_context` method on any `ActiveRecord` model, and then simply call the `.contextualize_with` method on your
+interactor or organizer to point it to the appropriate class.
 
 ```ruby
 # app/models/user.rb
@@ -183,7 +195,9 @@ CreateUser.perform(email: 'HELLO@AARONMALLEN.ME')
 #=> <#User id=1 email='hello@aaronmallen.me'>
 ```
 
-I hope the ruby community finds this gem usefull and I'd love any feed back, issues, or stars on the [repository] that you're willing to give. Detailed usage for the gem can be found on the [wiki]. Technical documentation for the gem can be found on [rubydoc].
+I hope the ruby community finds this gem usefull and I'd love any feed back, issues, or stars on the [repository] that
+you're willing to give. Detailed usage for the gem can be found on the [wiki]. Technical documentation for the gem can be
+found on [rubydoc].
 
 [ActiveModel::Validations]: https://api.rubyonrails.org/classes/ActiveModel/Validations.html
 [ActiveInteractor]: https://rubygems.org/gems/activeinteractor/

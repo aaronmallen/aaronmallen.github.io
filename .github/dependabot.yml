@@ -11,9 +11,7 @@ updates:
       interval: weekly
       day: monday
     labels:
-      - m:dependabot
-      - c:github-actions
-      - c:dependencies
+      - dependencies
     reviewers:
       - aaronmallen
   - package-ecosystem: bundler
@@ -22,8 +20,6 @@ updates:
       interval: weekly
       day: monday
     labels:
-      - m:dependabot
-      - c:bundler
-      - c:dependencies
+      - dependencies
     reviewers:
       - aaronmallen

@@ -1,0 +1,7 @@
+{% capture words %}
+  {{ include.content | number_of_words | minus: 180 }}
+{% endcapture %}
+{% unless words contains '-' %}
+  <i class='fa-regular fa-clock'></i>
+  <span>{{ words | plus: 150 | divided_by: 150 | append: ' minute read' }}</span>
+{% endunless %}

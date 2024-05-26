@@ -1,0 +1,28 @@
+---
+title: Blog Archive
+layout: page
+---
+{% include scroll_to_top_button.html %}
+<section class='mx-auto flex min-h-[calc(100vh-495px)] max-w-screen-2xl flex-col px-8'>
+  <header class='prose mx-auto'>
+    <h1>Blog Archive</h1>
+  </header>
+  {% assign years = site.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}
+  <div class='mx-auto'>
+    {% for year in years %}
+      <section class='p-4'>
+        <header>
+          <h2 class='mb-2 text-xl font-semibold'>{{ year.name }}</h2>
+        </header>
+        <ul>
+          {% for post in year.items %}
+            <li>
+              <span class='mr-4 text-sm text-gray-400'>{{ post.date | date: '%b %d' }}</span>
+              <a href='{{ post.url }}' class='underline'>{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
+</section>

@@ -6,6 +6,8 @@ GEM
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.8)
+    chef-utils (18.4.12)
+      concurrent-ruby
     code-scanning-rubocop (0.6.1)
       rubocop (~> 1.0)
     colorator (1.1.0)
@@ -18,6 +20,8 @@ GEM
     eventmachine (1.2.7)
     execjs (2.9.1)
     ffi (1.16.3)
+    ffi-win32-extensions (1.0.4)
+      ffi
     forwardable-extended (2.6.0)
     google-protobuf (4.27.0)
       bigdecimal
@@ -57,6 +61,8 @@ GEM
       safe_yaml (~> 1.0)
       terminal-table (>= 1.8, < 4.0)
       webrick (~> 1.7)
+    jekyll-compose (0.12.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-inline-svg (1.1.5)
@@ -68,8 +74,11 @@ GEM
       jekyll (>= 3.5)
       json-minify (~> 0.0.3)
       uglifier (~> 4.1)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
+    jekyll-seo-tag (2.8.0)
+      jekyll (>= 3.8, < 5.0)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
@@ -85,8 +94,24 @@ GEM
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    mdl (0.13.0)
+      kramdown (~> 2.3)
+      kramdown-parser-gfm (~> 1.1)
+      mixlib-cli (~> 2.1, >= 2.1.1)
+      mixlib-config (>= 2.2.1, < 4)
+      mixlib-shellout
     mercenary (0.4.0)
     mini_portile2 (2.8.6)
+    mixlib-cli (2.1.8)
+    mixlib-config (3.0.27)
+      tomlrb
+    mixlib-shellout (3.2.7)
+      chef-utils
+    mixlib-shellout (3.2.7-universal-mingw32)
+      chef-utils
+      ffi-win32-extensions (~> 1.0.3)
+      win32-process (~> 0.9)
+      wmi-lite (~> 1.0)
     nokogiri (1.16.5)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -189,10 +214,14 @@ GEM
       nokogiri
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
+    tomlrb (2.0.3)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.5.0)
     webrick (1.8.1)
+    win32-process (0.10.0)
+      ffi (>= 1.0.0)
+    wmi-lite (1.0.7)
 
 PLATFORMS
   aarch64-linux
@@ -226,10 +255,14 @@ DEPENDENCIES
   code-scanning-rubocop
   csv
   jekyll
+  jekyll-compose
   jekyll-feed
   jekyll-inline-svg
   jekyll-minifier
+  jekyll-paginate
+  jekyll-seo-tag
   jekyll-sitemap
+  mdl
   rubocop
   rubocop-jekyll
   rubocop-performance

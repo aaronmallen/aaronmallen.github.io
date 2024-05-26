@@ -2,12 +2,39 @@
 <html lang='{{ site.lang | default: "en-US" }}' class='scroll-smooth'>
   {% include head.html %}
   <body class='min-h-screen'>
-    {% include main-nav.html %}
-    <div class='pt-[100px] max-w-screen-xl mx-auto'>
-      <article class='prose-xl w-full'>
-        <h1 class='text-daisy-bush mb-0'>{{ page.title }}</h1>
-        {{ page.content }}
+    {% include main_nav.html %}
+    {% include scroll_to_top_button.html %}
+    <main role='main' class='min-h-[calc(100vh-375px)] pt-[80px]'>
+      <article class='prose md:prose-2xl mx-auto px-4'>
+        <h1 class='border-b-4 border-dotted border-slate-950'>{{ page.title }}</h1>
+        <div class='flex w-full flex-row items-center'>
+          <span class='w-1/2 text-gray-400'>{{ page.date | date: '%b %d %Y' }}</span>
+          <span class='w-1/2 text-right text-sm text-gray-400'>
+            {% include read_time.html content=content %}
+          </span>
+        </div>
+        {{ content }}
       </article>
-    </div>
+      <div class='mt-[50px]'>
+        {% include social_share_nav.html %}
+      </div>
+      <div class='mx-auto mt-[50px] flex max-w-screen-2xl flex-row items-center justify-center space-x-4'>
+        <a
+          href='javascript:history.back()'
+          class='rounded-lg bg-slate-950 px-4 py-3 text-sm text-white no-underline hover:bg-slate-800'
+          aria-label='Go Back'
+        >
+          <span>Go Back</span>
+        </a>
+        <a
+          href='/blog/archive'
+          class='text-md rounded-lg bg-slate-950 px-4 py-3 text-sm text-white hover:bg-slate-800'
+          aria-label='View Archive'
+        >
+          <span>View Archive</span>
+        </a>
+      </div>
+    </main>
+    {% include footer.html %}
   </body>
 </html>

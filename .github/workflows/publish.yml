@@ -1,9 +1,12 @@
 name: Publish
 
 on:
+  schedule:
+    - cron: '0 0 * * *'
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -11,7 +14,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -31,16 +34,16 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v4
         with:
-          node-version: 20.5
+          node-version: 22.2
           cache: npm
-      - name: Build Artifacts
+      - name: Build
+        env:
+          JEKYLL_ENV: production
         run: |
           npm install
-          npm run build:css
-      - name: Build docs
-        run: bundle exec jekyll build
+          npm run build
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

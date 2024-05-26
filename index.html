@@ -1,50 +1,59 @@
 ---
-layout: default
+layout: page
 ---
-<div id='splash' class='flex flex-col h-screen items-center justify-center'>
-  {% include splash.html %}
-</div>
+{% capture about_source %}{% include_relative about.html %}{% endcapture %}
+{% capture contact_source %}{% include_relative contact.html %}{% endcapture %}
 
-<div id='about' class='flex min-h-screen pt-[100px] items-center'>
-  <div class='max-w-screen-xl mx-auto px-4'>
-    <div class='flex flex-col md:space-x-4 md:flex-row'>
-      <div class='w-full p-4 md:w-3/5 md:border-r md:border-gray-200'>
-        {% include about.html %}
-      </div>
-      <div class='w-full md:w-2/5'>
-        <div class='flex flex-col w-full space-y-8'>
-          {% for post in site.posts limit: 5 %}
-            <div class='flex flex-col space-y-1 p-4 border border-white rounded-lg hover:bg-gray-50 hover:border-gray-200 transition-all ease-in-out'>
-              <h3 class='text-daisy-bush font-semibold'>
-                <a href='{{ post.url }}'>{{ post.title }}</a>
-              </h3>
-              <h4 class='text-sm text-gray-400'>{{ post.date | date: '%Y-%m-%d' }}</h4>
-              <p>{{ post.excerpt }}</p>
-            </div>
-          {% endfor %}
-          <div class='w-full text-right'>
-            <a
-              href='/blog'
-              class='hover:text-daisy-bush'
-            >
-              <span class='text-md'>View Blog</span>
-              <i class='fa-solid fa-arrow-up-right fa-xs'></i>
-            </a>
-          </div>
+<div id='hero'>
+  <section
+    class='bg-highlight-pre flex min-h-[calc(100vh-80px)] flex-col items-center justify-center bg-slate-950'
+  >
+    <header class='highlight mx-auto'>
+      <span class='text-md highlight ruby-def font-fira-code font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
+        <span class='k'>def</span> <span class='nf'>software_engineer</span>
+      </span>
+      <span class='text-md highlight rspec-subject font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
+        <span class='n'>subject</span><span class='p'>(</span><span class='ss'>:software_engineer</span
+        ><span class='p'>)</span>
+        <span class='k'>do</span>
+      </span>
+      <span class='text-md highlight javascript-function font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
+        <span class='kd'>function</span> <span class='nf'>softwareEngineer</span> <span class='p'>()</span>
+        <span class='p'>{</span>
+      </span>
+      <span class='text-md highlight javascript-const font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
+        <span class='kd'>const</span> <span class='nx'>softwareEngineer</span> <span class='o'>=</span>
+        <span class='p'>()</span> <span class='o'>=&gt;</span> <span class='p'>{</span>
+      </span>
+      <span class='text-md highlight python-function font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
+        <span class='k'>def</span> <span class='nf'>software_engineer</span><span class='p'>():</span>
+      </span>
+      <h1 class='text-center text-5xl font-extrabold text-white md:text-8xl lg:text-9xl'>&nbsp;Aaron Allen</h1>
+      <h2 class='text-right text-lg text-gray-200 md:text-3xl'>&nbsp;Senior Software Engineer</h2>
+      <span class='text-md highlight ruby-def rspec-subject font-fira-code font-extrabold  transition-opacity duration-1000 ease-in-out md:text-3xl'>
+        <span class='k'>end</span>
+      </span>
+      <span class='text-md highlight javascript-function javascript-const font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
+        <span class='p'>}</span>
+      </span>
+      <span class='text-md highlight python-function font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
+        &nbsp;
+      </span>
+    </header>
+    <nav class='absolute bottom-10 w-full' aria-label='Social media links'>
+      <div class='flex items-center justify-center'>
+        <div class='flex flex-row gap-4'>
+          {% include social_media_links.html link_class='text-gray-200/50 hover:text-white' icon_size_class='fa-xl' %}
         </div>
       </div>
-    </div>
-  </div>
+    </nav>
+  </section>
+  <div class='-mt-[1px] h-[100px] w-full bg-slate-950 [clip-path:polygon(100%_0%,0%_0%,100%_100%)]'></div>
+  <script src='/assets/javascript/hero-decoration.js'></script>
 </div>
-
-<div id='experience' class='flex flex-col min-h-screen pt-[100px]'>
-  <div class='max-w-screen-xl mx-auto px-4'>
-    {% include experience.html %}
-  </div>
+<div id='about' class='pt-[80px]'>
+  {{ about_source | split: '---' | last }}
 </div>
-
-<div id='contact' class='flex flex-col h-screen items-center justify-center'>
-  <div class='max-w-screen-xl mx-auto px-4 py-8'>
-    {% include contact.html %}
-  </div>
+<div id='contact' class='pt-[80px]'>
+  {{ contact_source | split: '---' | last }}
 </div>

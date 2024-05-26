@@ -1,0 +1,48 @@
+title: Aaron Allen
+email: hello@aaronmallen.me
+url: https://www.aaronmallen.me
+baseUrl: ''
+logo: /assets/images/logo.svg
+tagline: Aaron Allen's Personal Site
+description: >-
+  Aaron Allen is a Senior Software Engineer who sunlights at Root Insurance.
+  He's passionate about building software that solves real-world problems and
+  sharing his knowledge with others.
+author:
+  name: Aaron Allen
+  twitter: aaronmallen
+  threads: aaronmallen4
+  image: /assets/images/logo.svg
+twitter:
+  username: aaronmallen
+social:
+  name: Aaron Allen
+  links:
+    - https://www.linkedin.com/in/aaronmallen/
+    - https://www.twitter.com/aaronmallen/
+    - https://www.github.com/aaronmallen/
+    - https://www.instagram.com/aaronmallen4/
+    - https://www.threads.net/@aaronmallen4/
+
+plugins:
+  - jekyll-feed
+  - jekyll-inline-svg
+  - jekyll-minifier
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+exclude:
+  - config/
+  - LICENSE
+  - package.json
+  - package-lock.json
+  - node_modules/
+  - README.md
+jekyll-minifier:
+  uglifier_args:
+    harmony: true
+feed:
+  path: /blog/feed.xml
+  excerpt_only: true
+paginate: 10
+paginate_path: /blog/page:num/
