@@ -4,7 +4,7 @@ layout: default
 ---
 <div class='max-w-screen-xl mx-auto pt-[100px]'>
   {% for post in paginator.posts %}
-    <article class='prose-xl w-full p-4'>
+    <article class='prose md:prose-xl mx-auto p-4'>
       <a href='{{ post.url }}'>
         <h3 class='text-daisy-bush font-semibold'>{{ post.title }}</h3>
       </a>
