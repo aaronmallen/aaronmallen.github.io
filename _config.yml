@@ -36,5 +36,5 @@ exclude:
 jekyll-minifier:
   uglifier_args:
     harmony: true
-paginate: 10
+paginate: 1
 paginate_path: /blog/page:num/

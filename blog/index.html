@@ -19,6 +19,12 @@ layout: default
       <hr>
     {% endif %}
   {% endfor %}
+  <div class="flex items-center justify-center w-full">
+    <a href="/blog/archive/">
+      <span class='text-md'>Archive</span>
+      <i class='fa-solid fa-arrow-up-right fa-xs'></i>
+    </a>
+  </div>
   {% if paginator.total_pages > 1 %}
     <nav aria-label='pagination' class='my-4'>
       <ul class='flex items-center justify-center -space-x-px h-8 text-sm'>
