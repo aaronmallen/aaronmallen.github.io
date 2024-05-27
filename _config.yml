@@ -8,6 +8,7 @@ plugins:
   - jekyll-feed
   - jekyll-inline-svg
   - jekyll-minifier
+  - jekyll-paginate
   - jekyll-sitemap
 exclude:
   - config/
@@ -19,3 +20,5 @@ exclude:
 jekyll-minifier:
   uglifier_args:
     harmony: true
+paginate: 10
+paginate_path: /blog/page:num/

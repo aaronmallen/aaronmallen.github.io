@@ -68,6 +68,7 @@ GEM
       jekyll (>= 3.5)
       json-minify (~> 0.0.3)
       uglifier (~> 4.1)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
     jekyll-sitemap (1.4.0)
@@ -229,6 +230,7 @@ DEPENDENCIES
   jekyll-feed
   jekyll-inline-svg
   jekyll-minifier
+  jekyll-paginate
   jekyll-sitemap
   rubocop
   rubocop-jekyll

@@ -1,0 +1,45 @@
+---
+title: Blog
+layout: default
+---
+<div class='max-w-screen-xl mx-auto pt-[100px]'>
+  {% for post in paginator.posts %}
+    <article class='prose md:prose-xl w-full p-4'>
+      <a href='{{ post.url }}'>
+        <h3 class='text-daisy-bush font-semibold'>{{ post.title }}</h3>
+      </a>
+      <p class='mb-8 lg:mb-16 font-light text-gray-400 sm:text-xl'>
+        {{ post.date | date: '%Y-%m-%d' }}
+      </p>
+      <div>
+        {{ post.content }}
+      </div>
+    </article>
+    <hr>
+  {% endfor %}
+  {% if paginator.total_pages > 1 %}
+    <div class="flex flex-wrap w-full items-center justify-center p-4 space-x-1">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="rounded border border-gray-200 p-4">
+          <i class="fa-solid fa-angles-left"></i>
+        </a>
+      {% endif %}
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <span class="rounded border border-gray-200 p-4 text-daisy-bush font-semibold">{{ page }}</span>
+        {% else %}
+          {% if page == 1 %}
+            <a href="/blog" class="rounded border border-gray-200 p-4">1</a>
+          {% else %}
+            <a href="/blog/page{{ page }}" class="rounded border border-gray-200 p-4">{{ page }}</a>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="rounded border border-gray-200 p-4">
+          <i class="fa-solid fa-angles-right"></i>
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
