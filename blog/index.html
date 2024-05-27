@@ -15,7 +15,9 @@ layout: default
         {{ post.content }}
       </div>
     </article>
-    <hr>
+    {% if post != paginator.posts.last %}
+      <hr>
+    {% endif %}
   {% endfor %}
   {% if paginator.total_pages > 1 %}
     <nav aria-label='pagination' class='my-4'>
