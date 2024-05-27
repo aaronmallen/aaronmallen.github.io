@@ -157,7 +157,7 @@ end
 
 If you're working with a rails project ActiveInteractor comes bundled with some useful generators to help speed up development. You should first run the install generator with:
 
-```
+```sh
 rails generate active_interactor:install
 ```
 
