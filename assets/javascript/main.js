@@ -17,7 +17,7 @@ function initializeMainNavigationCollapseListener() {
     toggle.setAttribute('aria-expanded', !expanded)
   })
 
-  links.forEach(link => {
+  links.forEach((link) => {
     link.addEventListener('click', collapseNavbar)
   })
 }
