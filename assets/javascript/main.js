@@ -13,7 +13,6 @@ function initializeMainNavigationCollapseListener() {
 
   toggle.addEventListener('click', () => {
     const expanded = toggle.getAttribute('aria-expanded') === 'true' || false
-    console.log(expanded)
     target.classList.toggle('hidden', expanded)
     toggle.setAttribute('aria-expanded', !expanded)
   })
