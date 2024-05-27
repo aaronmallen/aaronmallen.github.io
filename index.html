@@ -1,50 +1,7 @@
 ---
 layout: default
 ---
-<div id='splash' class='flex flex-col h-screen items-center justify-center'>
-  {% include splash.html %}
-</div>
-
-<section id='about' class='flex min-h-screen pt-[100px] items-center'>
-  <div class='max-w-screen-xl mx-auto px-4'>
-    <div class='flex flex-col md:space-x-4 md:flex-row'>
-      <div class='w-full p-4 md:w-3/5 md:border-r md:border-gray-200'>
-        {% include about.html %}
-      </div>
-      <div class='w-full md:w-2/5'>
-        <div class='flex flex-col w-full space-y-8'>
-          {% for post in site.posts limit: 5 %}
-            <div class='flex flex-col space-y-1 p-4 border border-white rounded-lg hover:bg-gray-50 hover:border-gray-200 transition-all ease-in-out'>
-              <h3 class='text-daisy-bush font-semibold'>
-                <a href='{{ post.url }}'>{{ post.title }}</a>
-              </h3>
-              <h4 class='text-sm text-gray-400'>{{ post.date | date: '%b %d %Y' }}</h4>
-              <p>{{ post.excerpt }}</p>
-            </div>
-          {% endfor %}
-          <div class='w-full text-right'>
-            <a
-              href='/blog'
-              class='hover:text-daisy-bush'
-            >
-              <span class='text-md'>View Blog</span>
-              <i class='fa-solid fa-arrow-up-right fa-xs'></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id='experience' class='flex flex-col min-h-screen pt-[100px]'>
-  <div class='max-w-screen-xl mx-auto px-4'>
-    {% include experience.html %}
-  </div>
-</section>
-
-<section id='contact' class='flex flex-col h-screen items-center justify-center'>
-  <div class='max-w-screen-xl mx-auto px-4 py-8'>
-    {% include contact.html %}
-  </div>
-</section>
+{% include_relative splash.html %}
+{% include_relative about.html %}
+{% include_relative experience.html %}
+{% include_relative contact.html %}
