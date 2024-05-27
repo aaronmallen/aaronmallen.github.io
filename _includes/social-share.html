@@ -27,7 +27,7 @@
     <a
       rel='noopener'
       target='_blank'
-      href='https://www.threads.net/intent/post?text={{ title | url_encode }}{{ thread_by | url_encode }}%20{{ share_url }}'
+      href='https://www.threads.net/intent/post?text={{ title | append: thread_by | url_encode }}%20{{ share_url }}'
       class='text-slate-400 hover:text-slate-900'
     >
       <i class='fa-brands fa-threads fa-xl'></i>
