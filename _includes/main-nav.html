@@ -46,9 +46,7 @@
             <a
               href='{{ item.link }}'
               class='hover:text-daisy-bush block px-3 py-2 md:bg-transparent'
-              {% if item.current %}
-                aria-current='page'
-              {% endif %}
+              aria-label="{{ item.text }}"
             >
               {{ item.text }}
             </a>

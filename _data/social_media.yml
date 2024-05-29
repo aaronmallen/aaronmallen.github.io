@@ -1,14 +1,19 @@
-- icon: fa-github
+- name: GitHub
+  icon: fa-github
   link: https://www.github.com/aaronmallen
 
-- icon: fa-linkedin
+- name: LinkedIn
+  icon: fa-linkedin
   link: https://www.linkedin.com/in/aaronmallen
 
-- icon: fa-x-twitter
+- name: Twitter
+  icon: fa-x-twitter
   link: https://www.twitter.com/aaronmallen
 
-- icon: fa-instagram
+- name: Instagram
+  icon: fa-instagram
   link: https://www.instagram.com/aaronmallen4
 
-- icon: fa-threads
+- name: Threads
+  icon: fa-threads
   link: https://www.threads.net/@aaronmallen4
