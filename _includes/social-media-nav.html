@@ -1,11 +1,12 @@
-<div class='w-full flex flex-row space-x-4'>
+<div class='flex w-full flex-row space-x-4'>
   {% for social in site.data.social_media %}
     <a
       href='{{ social.link }}'
       target='_blank'
       class='text-slate-400 hover:text-slate-900'
+      aria-label='{{ social.name }}'
     >
-      <i class='fa-brands {{ social.icon }} fa-xl'></i>
+      <i class='fa-brands {{ social.icon }} fa-xl' aria-hidden='true' title='{{ social.name }}'></i>
     </a>
   {% endfor %}
 </div>

@@ -3,7 +3,9 @@
   {% include head.html %}
   <body class='min-h-screen'>
     {% include main-nav.html %}
-    {{ content }}
+    <main role='main'>
+      {{ content }}
+    </main>
+    {% include footer.html %}
   </body>
-  {% include footer.html %}
 </html>
