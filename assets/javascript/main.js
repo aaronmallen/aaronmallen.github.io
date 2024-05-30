@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const SPLASH_DECORATION_CLASSES = ['javascript-function', 'python-function', 'rspec-subject', 'ruby-def']
   let currentSplashDecorationClass = 'ruby-def'
 
-  function allDecorationElements() {
+  const allDecorationElements = () => {
     const elements = []
     const target = document.getElementById('splash')
     if (!target) return elements
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return elements
   }
 
-  function hideAllDecorationElements() {
+  const hideAllDecorationElements = () => {
     const elements = allDecorationElements()
 
     elements.forEach((element) => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  function randomSplashDecorationClass() {
+  const randomSplashDecorationClass = () => {
     let classNames
 
     if (currentSplashDecorationClass) {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return elements || []
   }
 
-  function updateSplashDecoration() {
+  const updateSplashDecoration = () => {
     hideAllDecorationElements()
     setTimeout(() => {
       currentSplashDecorationClass = randomSplashDecorationClass()
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize functions
 
-  function initializeMainNavigationCollapseListener() {
+  const initializeMainNavigationCollapseListener = () => {
     const toggle = document.querySelector('[data-collapse-toggle="main-navbar"]')
     const target = document.getElementById('main-navbar')
 
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  function initializeSplashDecoration() {
+  const initializeSplashDecoration = () => {
     SPLASH_DECORATION_CLASSES.forEach((className) => {
       const elements = splashDecorationElementsByClassName(className)
       elements.forEach((element) => {
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  function initializeBrandButtonClickListener() {
+  const initializeBrandButtonClickListener = () => {
     const target = document.querySelector('[role="navigation"]')
     if (!target) return
 
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  function initializeScrollToTopButton() {
+  const initializeScrollToTopButton = () => {
     const target = document.getElementById('scroll-to-top-button')
     if (!target) return
 
