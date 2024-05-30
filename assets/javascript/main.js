@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const HERO_DECORATION_CLASSES = ['javascript-function', 'python-function', 'rspec-subject', 'ruby-def']
+  const HERO_DECORATION_CLASSES = [
+    'javascript-const',
+    'javascript-function',
+    'python-function',
+    'rspec-subject',
+    'ruby-def',
+  ]
   const navbarToggle = document.querySelector('[data-collapse-toggle="main-navbar"]')
   const navbarLinksContainer = document.getElementById('main-navbar')
   const hero = document.getElementById('hero')
@@ -55,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         elements.forEach(hideElement)
         resolve(null)
-      }, 200)
+      }, 100)
     })
   }
 
