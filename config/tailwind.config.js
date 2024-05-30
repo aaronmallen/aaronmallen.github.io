@@ -24,7 +24,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        poppins: [
+        'fira-code': [
+          'Fira Code',
           'Poppins',
           '-apple-system',
           'Segoe UI',

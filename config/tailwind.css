@@ -6,5 +6,5 @@
 @tailwind utilities;
 
 * {
-  @apply font-poppins;
+  @apply font-fira-code;
 }
