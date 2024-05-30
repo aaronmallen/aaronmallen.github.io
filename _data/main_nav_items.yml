@@ -2,9 +2,9 @@
   text: About
   aria_label: About Aaron Allen
 
-- link: /#experience
-  text: Experience
-  aria_label: Aaron Allen's Experience
+- link: /blog
+  text: Blog
+  aria_label: Aaron Allen's Blog
 
 - link: /#contact
   text: Contact
