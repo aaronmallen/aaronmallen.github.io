@@ -2,7 +2,7 @@
   <div class='mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between p-4'>
     <a
       href='/#'
-      class='flex flex-grow items-center space-x-3 rtl:space-x-reverse'
+      class='flex flex-grow items-center space-x-3 rtl:space-x-reverse brand'
       aria-label='Homepage'
     >
       {% svg /assets/images/logo.svg class="h-12 w-auto" %}
@@ -45,8 +45,8 @@
           <li>
             <a
               href='{{ item.link }}'
-              class='hover:text-daisy-bush block px-3 py-2 md:bg-transparent'
-              aria-label="{{ item.text }}"
+              class='hover:text-daisy-bush block px-3 py-2 font-semibold md:bg-transparent'
+              aria-label='{{ item.aria_label }}'
             >
               {{ item.text }}
             </a>

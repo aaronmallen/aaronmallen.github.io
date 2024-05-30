@@ -19,6 +19,9 @@ module.exports = {
           900: '#451ea1',
           950: '#260f66',
         },
+        'highlight-pre': {
+          DEFAULT: '#272822',
+        },
       },
       fontFamily: {
         poppins: [
