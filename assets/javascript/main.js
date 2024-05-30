@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const target = document.getElementById('splash')
     if (!target) return elements
 
-    SPLASH_DECORATION_CLASSES.forEach(className => {
+    SPLASH_DECORATION_CLASSES.forEach((className) => {
       const elementsInClass = target.querySelectorAll(`.${className}`)
       elements.push(...elementsInClass)
     })
@@ -18,9 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideAllDecorationElements() {
     const elements = allDecorationElements()
 
-    elements.forEach(element => {
+    elements.forEach((element) => {
       element.classList.add('opacity-0')
-      setTimeout(() => { element.classList.add('hidden') }, 100)
+      setTimeout(() => {
+        element.classList.add('hidden')
+      }, 100)
     })
   }
 
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let classNames
 
     if (currentSplashDecorationClass) {
-      classNames = SPLASH_DECORATION_CLASSES.filter(className => className !== currentSplashDecorationClass)
+      classNames = SPLASH_DECORATION_CLASSES.filter((className) => className !== currentSplashDecorationClass)
     } else {
       classNames = SPLASH_DECORATION_CLASSES
     }
@@ -51,9 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
       currentSplashDecorationClass = randomSplashDecorationClass()
       const elements = splashDecorationElementsByClassName(currentSplashDecorationClass)
 
-      elements.forEach(element => {
+      elements.forEach((element) => {
         element.classList.remove('hidden')
-        setTimeout(() => { element.classList.remove('opacity-0') }, 50)
+        setTimeout(() => {
+          element.classList.remove('opacity-0')
+        }, 50)
       })
     }, 150)
   }
@@ -85,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initializeSplashDecoration() {
-    SPLASH_DECORATION_CLASSES.forEach(className => {
+    SPLASH_DECORATION_CLASSES.forEach((className) => {
       const elements = splashDecorationElementsByClassName(className)
-      elements.forEach(element => {
+      elements.forEach((element) => {
         element.classList.add('hidden')
         element.classList.add('opacity-0')
       })
@@ -96,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentSplashDecorationClass = randomSplashDecorationClass()
     const elements = splashDecorationElementsByClassName(currentSplashDecorationClass)
 
-    elements.forEach(element => {
+    elements.forEach((element) => {
       element.classList.remove('hidden')
       element.classList.remove('opacity-0')
     })
@@ -107,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!target) return
 
     const brandButtons = target.querySelectorAll('.brand')
-    brandButtons.forEach(button => {
+    brandButtons.forEach((button) => {
       button.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
         setTimeout(updateSplashDecoration, 100)
