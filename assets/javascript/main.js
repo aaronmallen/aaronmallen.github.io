@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const SPLASH_DECORATION_CLASSES = ['javascript-function', 'python-function', 'rspec-subject', 'ruby-def']
-  let currentSplashDecorationClass = 'ruby-def'
+  let currentSplashDecorationClass = null
 
   const allDecorationElements = () => {
     const elements = []
@@ -106,6 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  const initializeSplashDecorationRotation = () => {
+    setTimeout(() => {
+      updateSplashDecoration()
+      initializeSplashDecorationRotation()
+    }, 5000)
+  }
+
   const initializeBrandButtonClickListener = () => {
     const target = document.querySelector('[role="navigation"]')
     if (!target) return
@@ -122,4 +129,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeMainNavigationCollapseListener()
   initializeSplashDecoration()
   initializeBrandButtonClickListener()
+  initializeSplashDecorationRotation()
 })
