@@ -119,25 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  const initializeScrollToTopButton = () => {
-    const target = document.getElementById('scroll-to-top-button')
-    if (!target) return
-
-    document.addEventListener('scroll', () => {
-      if (window.scrollY === 0) {
-        setTimeout(() => target.classList.add('opacity-0'), 100)
-      } else {
-        setTimeout(() => target.classList.remove('opacity-0'), 100)
-      }
-    })
-
-    target.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    })
-  }
-
   initializeMainNavigationCollapseListener()
   initializeSplashDecoration()
   initializeBrandButtonClickListener()
-  initializeScrollToTopButton()
 })
