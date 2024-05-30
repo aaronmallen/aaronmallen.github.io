@@ -1,12 +1,12 @@
 ---
 layout: default
 ---
-{% capture splash_source %}{% include_relative splash.html %}{% endcapture %}
+{% capture hero_source %}{% include_relative hero.html %}{% endcapture %}
 {% capture about_source %}{% include_relative about.html %}{% endcapture %}
 {% capture experience_source %}{% include_relative experience.html %}{% endcapture %}
 {% capture contact_source %}{% include_relative contact.html %}{% endcapture %}
 
-{{ splash_source | split: '---' | last }}
+{{ hero_source | split: '---' | last }}
 {{ about_source | split: '---' | last }}
 {{ experience_source | split: '---' | last }}
 {{ contact_source | split: '---' | last }}

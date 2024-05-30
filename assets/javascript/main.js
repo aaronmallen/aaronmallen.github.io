@@ -1,133 +1,143 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const SPLASH_DECORATION_CLASSES = ['javascript-function', 'python-function', 'rspec-subject', 'ruby-def']
-  let currentSplashDecorationClass = null
+  const HERO_DECORATION_CLASSES = ['javascript-function', 'python-function', 'rspec-subject', 'ruby-def']
+  const navbarToggle = document.querySelector('[data-collapse-toggle="main-navbar"]')
+  const navbarLinksContainer = document.getElementById('main-navbar')
+  const hero = document.getElementById('hero')
 
-  const allDecorationElements = () => {
-    const elements = []
-    const target = document.getElementById('splash')
-    if (!target) return elements
+  let navbarExpanded = false
+  let currentHeroDecorationClass = null
 
-    SPLASH_DECORATION_CLASSES.forEach((className) => {
-      const elementsInClass = target.querySelectorAll(`.${className}`)
-      elements.push(...elementsInClass)
-    })
+  const collapseNavbar = () => {
+    if (!navbarToggle || !navbarLinksContainer) return
 
-    return elements
+    navbarExpanded = false
+    hideElement(navbarLinksContainer)
+    setNavbarAriaExpanded()
   }
 
-  const hideAllDecorationElements = () => {
-    const elements = allDecorationElements()
+  const elementsByClassName = (className, parent = document) => {
+    return parent.querySelectorAll(`.${className}`)
+  }
 
+  const expandNavbar = () => {
+    if (!navbarToggle || !navbarLinksContainer) return
+
+    navbarExpanded = true
+    showElement(navbarLinksContainer)
+    setNavbarAriaExpanded()
+  }
+
+  const fadeInCurrentHeroDecoration = () => {
+    if (!hero) return new Promise((resolve) => resolve(null))
+
+    const elements = elementsByClassName(currentHeroDecorationClass, hero)
+    elements.forEach(showElement)
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        elements.forEach((element) => {
+          element.classList.remove('opacity-0')
+        })
+        resolve(null)
+      }, 50)
+    })
+  }
+
+  const fadeOutCurrentHeroDecoration = () => {
+    if (!hero) return new Promise((resolve) => resolve(null))
+
+    const elements = elementsByClassName(currentHeroDecorationClass, hero)
     elements.forEach((element) => {
       element.classList.add('opacity-0')
+    })
+
+    return new Promise((resolve) => {
       setTimeout(() => {
-        element.classList.add('hidden')
-      }, 100)
+        elements.forEach(hideElement)
+        resolve(null)
+      }, 200)
     })
   }
 
-  const randomSplashDecorationClass = () => {
-    let classNames
-
-    if (currentSplashDecorationClass) {
-      classNames = SPLASH_DECORATION_CLASSES.filter((className) => className !== currentSplashDecorationClass)
-    } else {
-      classNames = SPLASH_DECORATION_CLASSES
-    }
-
-    const randomIndex = Math.floor(Math.random() * classNames.length)
-    return classNames[randomIndex]
+  const hideElement = (element) => {
+    element.classList.add('hidden')
   }
 
-  function splashDecorationElementsByClassName(className) {
-    const target = document.getElementById('splash')
-    if (!target) return []
+  const initializeHeroDecoration = () => {
+    if (!hero) return
 
-    const elements = target.querySelectorAll(`.${className}`)
-    return elements || []
-  }
-
-  const updateSplashDecoration = () => {
-    hideAllDecorationElements()
-    setTimeout(() => {
-      currentSplashDecorationClass = randomSplashDecorationClass()
-      const elements = splashDecorationElementsByClassName(currentSplashDecorationClass)
-
+    HERO_DECORATION_CLASSES.forEach((className) => {
+      const elements = elementsByClassName(className, hero)
       elements.forEach((element) => {
-        element.classList.remove('hidden')
-        setTimeout(() => {
-          element.classList.remove('opacity-0')
-        }, 50)
-      })
-    }, 150)
-  }
-
-  // Initialize functions
-
-  const initializeMainNavigationCollapseListener = () => {
-    const toggle = document.querySelector('[data-collapse-toggle="main-navbar"]')
-    const target = document.getElementById('main-navbar')
-
-    if (!toggle || !target) return
-
-    const links = target.querySelectorAll('a')
-
-    const collapseNavbar = () => {
-      target.classList.add('hidden')
-      toggle.setAttribute('aria-expanded', 'false')
-    }
-
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true' || false
-      target.classList.toggle('hidden', expanded)
-      toggle.setAttribute('aria-expanded', !expanded)
-    })
-
-    links.forEach((link) => {
-      link.addEventListener('click', collapseNavbar)
-    })
-  }
-
-  const initializeSplashDecoration = () => {
-    SPLASH_DECORATION_CLASSES.forEach((className) => {
-      const elements = splashDecorationElementsByClassName(className)
-      elements.forEach((element) => {
-        element.classList.add('hidden')
+        hideElement(element)
         element.classList.add('opacity-0')
       })
     })
 
-    currentSplashDecorationClass = randomSplashDecorationClass()
-    const elements = splashDecorationElementsByClassName(currentSplashDecorationClass)
-
-    elements.forEach((element) => {
-      element.classList.remove('hidden')
-      element.classList.remove('opacity-0')
-    })
+    showRandomHeroDecoration()
   }
 
-  const initializeSplashDecorationRotation = () => {
+  const initializeHeroDecorationRotation = () => {
+    if (!hero) return
+
     setTimeout(() => {
-      updateSplashDecoration()
-      initializeSplashDecorationRotation()
-    }, 5000)
+      showRandomHeroDecoration()
+      initializeHeroDecorationRotation()
+    }, 10000)
   }
 
-  const initializeBrandButtonClickListener = () => {
-    const target = document.querySelector('[role="navigation"]')
-    if (!target) return
+  const initializeMainNavigationCollapseListener = () => {
+    if (!navbarToggle || !navbarLinksContainer) return
 
-    const brandButtons = target.querySelectorAll('.brand')
-    brandButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-        setTimeout(updateSplashDecoration, 100)
-      })
+    navbarToggle.addEventListener('click', toggleNavbar)
+    navbarLinksContainer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', collapseNavbar)
     })
+  }
+
+  const randomHeroDecorationClass = () => {
+    let classNames
+
+    if (currentHeroDecorationClass) {
+      classNames = HERO_DECORATION_CLASSES.filter((className) => className !== currentHeroDecorationClass)
+    } else {
+      classNames = HERO_DECORATION_CLASSES
+    }
+
+    return sampleArray(classNames)
+  }
+
+  const sampleArray = (array) => {
+    return array[Math.floor(Math.random() * array.length)]
+  }
+
+  const setNavbarAriaExpanded = () => {
+    if (!navbarToggle) return
+
+    navbarToggle.setAttribute('aria-expanded', navbarExpanded.toString())
+  }
+
+  const showElement = (element) => {
+    element.classList.remove('hidden')
+  }
+
+  const showRandomHeroDecoration = () => {
+    if (!hero) return
+
+    fadeOutCurrentHeroDecoration()
+      .then((currentHeroDecorationClass = randomHeroDecorationClass()))
+      .finally(fadeInCurrentHeroDecoration)
+  }
+
+  const toggleNavbar = () => {
+    if (navbarExpanded) {
+      collapseNavbar()
+    } else {
+      expandNavbar()
+    }
   }
 
   initializeMainNavigationCollapseListener()
-  initializeSplashDecoration()
-  initializeBrandButtonClickListener()
-  initializeSplashDecorationRotation()
+  initializeHeroDecoration()
+  initializeHeroDecorationRotation()
 })
