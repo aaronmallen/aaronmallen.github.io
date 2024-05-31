@@ -24,9 +24,20 @@ module.exports = {
         },
       },
       fontFamily: {
+        poppins: [
+          'Poppins',
+          '-apple-system',
+          'Segoe UI',
+          'Roboto',
+          'Helvetica Neue',
+          'Arial',
+          'sans-serif',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+        ],
         'fira-code': [
           'Fira Code',
-          'Poppins',
           '-apple-system',
           'Segoe UI',
           'Roboto',

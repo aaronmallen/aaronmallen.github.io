@@ -6,6 +6,10 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+body {
+  @apply font-poppins;
+}
+
+.highlight pre {
   @apply font-fira-code;
 }
