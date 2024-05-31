@@ -7,7 +7,7 @@
   "license": "MIT",
   "homepage": "https://github.com/aaronmallen/aaronmallen.github.io",
   "scripts": {
-    "build:css": "npm run _tw -- --jti -i ./config/tailwind.css -o ./_sass/_tailwind.scss",
+    "build:css": "npm run _tw -- --jti -i ./config/tailwind.css -o ./assets/css/main.css",
     "build:css:watch": "npm run build:css -- --watch",
     "dev": "concurrently -kill-others \"npm run build:css:watch\" \"jekyll serve --livereload\"",
     "format": "prettier --config ./config/.prettierrc --write .",
