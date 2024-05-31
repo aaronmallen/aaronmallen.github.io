@@ -6,6 +6,7 @@ gem 'csv'
 gem 'jekyll'
 
 group :jekyll_plugins do
+  gem 'jekyll-compose'
   gem 'jekyll-feed'
   gem 'jekyll-inline-svg'
   gem 'jekyll-minifier'
