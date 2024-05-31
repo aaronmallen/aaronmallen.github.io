@@ -9,12 +9,14 @@
   "scripts": {
     "build:css": "npm run _tw -- --jti -i ./config/tailwind.css -o ./_sass/_tailwind.scss",
     "build:css:watch": "npm run build:css -- --watch",
+    "dev": "concurrently -kill-others \"npm run build:css:watch\" \"jekyll serve --livereload\"",
     "format": "prettier --config ./config/.prettierrc --write .",
     "_tw": "tailwind --config ./config/tailwind.config.js"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "^1.5.0",
     "@tailwindcss/typography": "^0.5.13",
+    "concurrently": "^8.2.2",
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.3"
