@@ -1,3 +1,17 @@
-<footer class='bg-daisy-bush flex w-full items-center justify-center p-8'>
-  <p class='text-sm text-white'>&copy; Copyright {{ site.time | date: '%Y' }} Aaron Allen. All Rights Reserved.</p>
+<div class='mt-[100px] h-[100px] w-full bg-slate-950 [clip-path:polygon(100%_0%,0%_100%,100%_100%)]'></div>
+<footer class='w-full bg-slate-950 text-white'>
+  <div class='mx-auto flex max-w-screen-2xl flex-col items-center space-y-4 py-10 md:flex-row'>
+    <div class='w-full text-center md:w-1/2 md:text-left'>
+      <ul>
+        {% for item in site.data.footer_nav_items %}
+          <li>
+            <a href='{{ item.link }}' class='text-sm underline' aria-label='{{ item.aria_label }}'>{{ item.text }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class='w-full text-center md:w-1/2'>
+      <span class='text-sm'>&copy; Copyright {{ site.time | date: '%Y' }} Aaron Allen. All Rights Reserved.</span>
+    </div>
+  </div>
 </footer>

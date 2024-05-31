@@ -6,63 +6,64 @@ document.addEventListener('DOMContentLoaded', () => {
     'rspec-subject',
     'ruby-def',
   ]
-  const navbarToggle = document.querySelector('[data-collapse-toggle="main-navbar"]')
-  const navbarLinksContainer = document.getElementById('main-navbar')
+
   const hero = document.getElementById('hero')
+  const mainNav = document.getElementById('main-nav')
+  const mainNavToggle = mainNav?.querySelector('[data-collapse-toggle="main-nav"]')
+  const mainNavLinksContainer = document.getElementById('main-nav-links')
+  const mainNavOpenIcon = document.getElementById('main-nav-open-icon')
+  const mainNavCloseIcon = document.getElementById('main-nav-close-icon')
 
-  let navbarExpanded = false
   let currentHeroDecorationClass = null
+  let mainNavExpanded = false
 
-  const collapseNavbar = () => {
-    if (!navbarToggle || !navbarLinksContainer) return
-
-    navbarExpanded = false
-    hideElement(navbarLinksContainer)
-    setNavbarAriaExpanded()
+  const collapseMainNav = () => {
+    mainNavExpanded = false
+    hideElement(mainNavLinksContainer)
+    hideElement(mainNavCloseIcon)
+    showElement(mainNavOpenIcon)
+    setMainNavAriaExpanded()
   }
 
   const elementsByClassName = (className, parent = document) => {
     return parent.querySelectorAll(`.${className}`)
   }
 
-  const expandNavbar = () => {
-    if (!navbarToggle || !navbarLinksContainer) return
+  const expandMainNav = () => {
+    if (!mainNavToggle || !mainNavLinksContainer) return
 
-    navbarExpanded = true
-    showElement(navbarLinksContainer)
-    setNavbarAriaExpanded()
+    mainNavExpanded = true
+    showElement(mainNavLinksContainer)
+    hideElement(mainNavOpenIcon)
+    showElement(mainNavCloseIcon)
+    setMainNavAriaExpanded()
   }
 
-  const fadeInCurrentHeroDecoration = () => {
-    if (!hero) return new Promise((resolve) => resolve(null))
+  const fadeInCurrentHeroDecoration = (callback = () => {}) => {
+    if (!hero) return
 
     const elements = elementsByClassName(currentHeroDecorationClass, hero)
     elements.forEach(showElement)
 
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        elements.forEach((element) => {
-          element.classList.remove('opacity-0')
-        })
-        resolve(null)
-      }, 50)
-    })
+    setTimeout(() => {
+      elements.forEach((element) => {
+        element.classList.remove('opacity-0')
+      })
+      callback()
+    }, 50)
   }
 
-  const fadeOutCurrentHeroDecoration = () => {
-    if (!hero) return new Promise((resolve) => resolve(null))
+  const fadeOutCurrentHeroDecoration = (callback = () => {}) => {
+    if (!hero) return
 
     const elements = elementsByClassName(currentHeroDecorationClass, hero)
     elements.forEach((element) => {
       element.classList.add('opacity-0')
     })
-
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        elements.forEach(hideElement)
-        resolve(null)
-      }, 100)
-    })
+    setTimeout(() => {
+      elements.forEach(hideElement)
+      callback()
+    }, 1001)
   }
 
   const hideElement = (element) => {
@@ -93,12 +94,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const initializeMainNavigationCollapseListener = () => {
-    if (!navbarToggle || !navbarLinksContainer) return
+    if (!mainNavToggle || !mainNavLinksContainer) return
 
-    navbarToggle.addEventListener('click', toggleNavbar)
-    navbarLinksContainer.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', collapseNavbar)
+    mainNavToggle.addEventListener('click', toggleMainNavCollapse)
+    mainNavLinksContainer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', collapseMainNav)
     })
+  }
+
+  const initializeMainNavHeroListener = () => {
+    if (!hero) return
+
+    toggleMainNavHeroBackground()
+    window.addEventListener('scroll', toggleMainNavHeroBackground)
   }
 
   const randomHeroDecorationClass = () => {
@@ -117,10 +125,32 @@ document.addEventListener('DOMContentLoaded', () => {
     return array[Math.floor(Math.random() * array.length)]
   }
 
-  const setNavbarAriaExpanded = () => {
-    if (!navbarToggle) return
+  const setMainNavAriaExpanded = () => {
+    if (!mainNavToggle) return
 
-    navbarToggle.setAttribute('aria-expanded', navbarExpanded.toString())
+    mainNavToggle.setAttribute('aria-expanded', mainNavExpanded.toString())
+  }
+
+  const setMainNavDefaultMode = () => {
+    mainNav?.classList.add('bg-white')
+    mainNav?.classList.remove('bg-slate-950')
+    mainNav?.classList.remove('text-white')
+
+    const logo = document.getElementById('main-nav-logo')
+    if (!logo) return
+
+    logo.classList.remove('fill-white')
+  }
+
+  const setMainNavHeroMode = () => {
+    mainNav?.classList.add('bg-slate-950')
+    mainNav?.classList.add('text-white')
+    mainNav?.classList.remove('bg-white')
+
+    const logo = document.getElementById('main-nav-logo')
+    if (!logo) return
+
+    logo.classList.add('fill-white')
   }
 
   const showElement = (element) => {
@@ -130,20 +160,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const showRandomHeroDecoration = () => {
     if (!hero) return
 
-    fadeOutCurrentHeroDecoration()
-      .then((currentHeroDecorationClass = randomHeroDecorationClass()))
-      .finally(fadeInCurrentHeroDecoration)
+    fadeOutCurrentHeroDecoration(() => {
+      currentHeroDecorationClass = randomHeroDecorationClass()
+      fadeInCurrentHeroDecoration()
+    })
   }
 
-  const toggleNavbar = () => {
-    if (navbarExpanded) {
-      collapseNavbar()
+  const toggleMainNavCollapse = () => {
+    if (mainNavExpanded) {
+      collapseMainNav()
     } else {
-      expandNavbar()
+      expandMainNav()
+    }
+  }
+
+  const toggleMainNavHeroBackground = () => {
+    if (!hero) return
+
+    if (window.scrollY <= hero.offsetHeight) {
+      setMainNavHeroMode()
+    } else {
+      setMainNavDefaultMode()
     }
   }
 
   initializeMainNavigationCollapseListener()
+  initializeMainNavHeroListener()
   initializeHeroDecoration()
   initializeHeroDecorationRotation()
 })

@@ -1,0 +1,15 @@
+- link: /about
+  text: About Me
+  aria_label: About Aaron Allen
+
+- link: /contact
+  text: Contact Me
+  aria_label: Contact Aaron Allen
+
+- link: /blog
+  text: Blog
+  aria_label: Aaron Allen's Blog
+
+- link: /blog/archive
+  text: Blog Archive
+  aria_label: Aaron Allen's Blog Archive

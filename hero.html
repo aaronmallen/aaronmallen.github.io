@@ -1,42 +1,46 @@
 ---
-layout: default
+layout: page
+title: Hero
 ---
-<section id='hero' class='bg-highlight-pre flex h-screen flex-col items-center justify-center'>
+<section
+  id='hero'
+  class='bg-highlight-pre flex min-h-[calc(100vh-80px)] flex-col items-center justify-center bg-slate-950'
+>
   <header class='highlight mx-auto'>
-    <span class='text-md highlight ruby-def font-fira-code font-extrabold transition-opacity ease-in-out md:text-3xl'>
+    <span class='text-md highlight ruby-def font-fira-code font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
       <span class='k'>def</span> <span class='nf'>software_engineer</span>
     </span>
-    <span class='text-md highlight rspec-subject font-fira-code hidden font-extrabold transition-opacity ease-in-out md:text-3xl'>
+    <span class='text-md highlight rspec-subject font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
       <span class='n'>subject</span><span class='p'>(</span><span class='ss'>:software_engineer</span
       ><span class='p'>)</span>
       <span class='k'>do</span>
     </span>
-    <span class='text-md highlight javascript-function font-fira-code hidden font-extrabold transition-opacity ease-in-out md:text-3xl'>
+    <span class='text-md highlight javascript-function font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
       <span class='kd'>function</span> <span class='nf'>softwareEngineer</span> <span class='p'>()</span>
       <span class='p'>{</span>
     </span>
-    <span class='text-md highlight javascript-const font-fira-code hidden font-extrabold transition-opacity ease-in-out md:text-3xl'>
+    <span class='text-md highlight javascript-const font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
       <span class='kd'>const</span> <span class='nx'>softwareEngineer</span> <span class='o'>=</span>
       <span class='p'>()</span> <span class='o'>=&gt;</span> <span class='p'>{</span>
     </span>
-    <span class='text-md highlight python-function font-fira-code hidden font-extrabold transition-opacity ease-in-out md:text-3xl'>
+    <span class='text-md highlight python-function font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
       <span class='k'>def</span> <span class='nf'>software_engineer</span><span class='p'>():</span>
     </span>
     <h1 class='text-center text-5xl font-extrabold text-white md:text-8xl lg:text-9xl'>&nbsp;Aaron Allen</h1>
     <h2 class='text-right text-lg text-gray-200 md:text-3xl'>&nbsp;Senior Software Engineer</h2>
-    <span class='text-md highlight ruby-def rspec-subject font-fira-code font-extrabold  transition-opacity ease-in-out md:text-3xl'>
+    <span class='text-md highlight ruby-def rspec-subject font-fira-code font-extrabold  transition-opacity duration-1000 ease-in-out md:text-3xl'>
       <span class='k'>end</span>
     </span>
-    <span class='text-md highlight javascript-function javascript-const font-fira-code hidden font-extrabold transition-opacity ease-in-out md:text-3xl'>
+    <span class='text-md highlight javascript-function javascript-const font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
       <span class='p'>}</span>
     </span>
-    <span class='text-md highlight python-function font-fira-code hidden font-extrabold transition-opacity ease-in-out md:text-3xl'>
+    <span class='text-md highlight python-function font-fira-code hidden font-extrabold transition-opacity duration-1000 ease-in-out md:text-3xl'>
       &nbsp;
     </span>
   </header>
-  <nav class='absolute bottom-0 w-full bg-white p-8' aria-label='Social media links'>
+  <nav class='absolute bottom-10 w-full' aria-label='Social media links'>
     <div class='flex items-center justify-center'>
-      {% include social-media-nav.html link_class="text-slate-400 hover:text-slate-900" %}
+      {% include social_media_nav.html link_class="text-gray-200/50 hover:text-white" %}
     </div>
   </nav>
 </section>

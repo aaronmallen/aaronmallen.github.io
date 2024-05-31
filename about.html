@@ -1,145 +1,104 @@
 ---
+layout: page
 title: About Me
-layout: default
 ---
-<section id='about' class='pt-[100px]'>
-  <div class='mx-auto flex max-w-screen-2xl flex-col items-center justify-center space-y-4'>
-    <div class='flex flex-col md:flex-row md:space-x-4'>
-      <div class='w-full p-4 md:w-1/2'>
-        <h2 class='text-daisy-bush text-xl font-semibold'>About Me</h2>
-        <div class='prose'>
-          <p>
-            As a senior software engineer at <span class='text-daisy-bush font-semibold'>Root Insurance</span>, I am
-            dedicated to developing and maintaining robust web applications and services that enable millions of
-            individuals to obtain affordable car insurance. My proficiency is centered around the
-            <span class='text-daisy-bush font-semibold'>Ruby on Rails</span> and
-            <span class='text-daisy-bush font-semibold'>Node.js</span> frameworks, bolstered by over
-            <span class='text-daisy-bush font-semibold'>12 years</span> of extensive experience in the web development
-            industry.
-          </p>
-          <p>
-            My previous experience includes a significant tenure at
-            <span class='text-daisy-bush font-semibold'>Zillow Group</span>, where I played a crucial role in migrating
-            <span class='text-daisy-bush font-semibold'>StreetEasy</span> to a Commands and Queries pattern within a
-            Rails monolith. This involved extracting tightly coupled controller logic into reusable service objects,
-            which significantly improved the maintainability and scalability of the codebase. I also spearheaded the
-            consolidation of NakedApartments into StreetEasy, ensuring a seamless transition and alignment of branding
-            strategies.
-          </p>
-          <p>
-            At Zillow, I developed a strategy for Single Sign-On (SSO) authentication to streamline access across
-            StreetEasy's Java services, including both monolithic and federated GraphQL implementations. Additionally, I
-            led two technical pods, guiding the migration of StreetEasy from a Rails monolith to Java Micronaut
-            services. I also contributed to the creation of the subscription-based Industry Experts Program for agents
-            interested in listing on StreetEasy.
-          </p>
-          <p>
-            At <span class='text-daisy-bush font-semibold'>Moxie</span>, as a Junior Software Engineer, I played a major
-            role in developing a Ruby on Rails Knowledge Base application. I spearheaded the company's exploration into
-            <span class='text-daisy-bush font-semibold'>Natural Language Processing</span> and machine learning
-            technologies and optimized UI components across products through the development of an
-            <span class='text-daisy-bush font-semibold'>Angular 1.x</span> application.
-          </p>
-          <p>
-            Beyond my professional pursuits, I am an active maintainer of the
-            <span class='text-daisy-bush font-semibold'>ActiveInteractor</span> Ruby Gem, an implementation of the
-            Command pattern in Ruby, which I have been developing since 2019. My dedication to continuous professional
-            development is underscored by certifications in
-            <span class='text-daisy-bush font-semibold'>agile development</span> practices and
-            <span class='text-daisy-bush font-semibold'>machine learning</span>.
-          </p>
-          <p>
-            I excel in collaborative environments, regularly participating in hackathons and contributing to innovative
-            projects alongside fellow developers. My efforts have been recognized through numerous accolades, including
-            triumphs at the
-            <span class='text-daisy-bush font-semibold'>Moxie Ignite</span> hackathon in 2015 and 2017, and the
-            <span class='text-daisy-bush font-semibold'>City and Sand</span> hackathon in 2018.
-          </p>
-          <p>
-            My technical expertise is complemented by strong skills in various programming languages and frameworks,
-            including Ruby, JavaScript, C#, Python, HTML, CSS, SASS, tSQL, pSQL, MySQL, React, Vue.js, Apollo, Sinatra,
-            and Electron. I am adept at driving faster delivery of high-quality technology solutions and improving user
-            experiences through my full-stack development capabilities.
-          </p>
-          <p>
-            As an analytical and agile software engineer, I am experienced at managing the software development
-            lifecycle, including software testing, debugging, and designing scalable code. Through substantial
-            experience collaborating with others, I have cultivated the ability to lead and train cross-functional,
-            technical teams, enabling us to achieve collective goals and shared visions. I am an active problem-solver,
-            critical thinker, and communicator, consistently uncovering root causes of complex issues via innovative
-            solutions.
-          </p>
-        </div>
-      </div>
-      <div class='w-full md:w-1/2'>
-        <div class='flex w-full flex-col items-center justify-center'>
-          {% for experience in site.data.experiences %}
-            <div
-              class='flex w-full flex-col rounded-lg border border-white p-4 transition-all ease-in-out hover:border-gray-200 hover:bg-gray-50 lg:flex-row'
-              aria-label='{{ experience.company }}'
-            >
-              <div
-                class='text-daisy-bush w-full text-sm font-semibold opacity-50 md:w-1/3'
-              >
-                {{ experience.start_date }} - {{ experience.end_date }}
-              </div>
-              <div class='w-full flex-col space-y-1 md:w-2/3'>
-                <h3 id='experience-{{ forloop.index }}' class='text-daisy-bush font-semibold'>
-                  {{ experience.company }}
-                </h3>
-                <h4 class='text-sm text-gray-400'>{{ experience.title }}</h4>
-                <p>{{ experience.description }}</p>
-                <div class='flex w-full flex-wrap space-x-2 py-2'>
-                  <ul class='mt-2 flex flex-wrap'>
-                    {% for skill in experience.skills %}
-                      <li class='mr-1.5 mt-2'>
-                        <div
-                          class='bg-daisy-bush-300 text-daisy-bush flex items-center rounded-full px-3 py-1 text-xs font-medium leading-5'
-                        >
-                          {{ skill }}
-                        </div>
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-        <div class='w-full text-right'>
-          <a
-            href='{% link /assets/files/resume.pdf %}'
-            class='hover:text-daisy-bush'
-            target='_blank'
-            aria-label='View Full Resume'
-          >
-            <span class='text-md'>View Full Resume</span>
-            <i class='fa-solid fa-arrow-up-right fa-xs'></i>
-          </a>
-        </div>
-      </div>
+<section id='about' class='min-h-screen pt-[80px]'>
+  <div class='mx-auto flex max-w-screen-2xl flex-col md:flex-row'>
+    <div class='prose w-full px-4 py-10 md:w-1/2'>
+      <h3>About Me</h3>
+      <p>
+        As a senior software engineer at Root Insurance, I am dedicated to developing and maintaining robust web
+        applications and services that enable millions of individuals to obtain affordable car insurance. My proficiency
+        is centered around the Ruby on Rails and Node.js frameworks, bolstered by over 12 years of extensive experience
+        in the web development industry.
+      </p>
+      <p>
+        My previous experience includes a significant tenure at Zillow Group, where I played a crucial role in migrating
+        StreetEasy to a Commands and Queries pattern within a Rails monolith. This involved extracting tightly coupled
+        controller logic into reusable service objects, which significantly improved the maintainability and scalability
+        of the codebase. I also spearheaded the consolidation of NakedApartments into StreetEasy, ensuring a seamless
+        transition and alignment of branding strategies.
+      </p>
+      <p>
+        At Zillow, I developed a strategy for Single Sign-On (SSO) authentication to streamline access across
+        StreetEasy's Java services, including both monolithic and federated GraphQL implementations. Additionally, I led
+        two technical pods, guiding the migration of StreetEasy from a Rails monolith to Java Micronaut services. I also
+        contributed to the creation of the subscription-based Industry Experts Program for agents interested in listing
+        on StreetEasy.
+      </p>
+      <p>
+        At Moxie, as a Junior Software Engineer, I played a major role in developing a Ruby on Rails Knowledge Base
+        application. I spearheaded the company's exploration into Natural Language Processing and machine learning
+        technologies and optimized UI components across products through the development of an Angular 1.x application.
+      </p>
+      <p>
+        Beyond my professional pursuits, I am an active maintainer of the ActiveInteractor Ruby Gem, an implementation
+        of the Command pattern in Ruby, which I have been developing since 2019. My dedication to continuous
+        professional development is underscored by certifications in agile development practices and machine learning.
+      </p>
+      <p>
+        I excel in collaborative environments, regularly participating in hackathons and contributing to innovative
+        projects alongside fellow developers. My efforts have been recognized through numerous accolades, including
+        triumphs at the Moxie Ignite hackathon in 2015 and 2017, and the City and Sand hackathon in 2018.
+      </p>
+      <p>
+        My technical expertise is complemented by strong skills in various programming languages and frameworks,
+        including Ruby, JavaScript, C#, Python, HTML, CSS, SASS, tSQL, pSQL, MySQL, React, Vue.js, Apollo, Sinatra, and
+        Electron. I am adept at driving faster delivery of high-quality technology solutions and improving user
+        experiences through my full-stack development capabilities.
+      </p>
+      <p>
+        As an analytical and agile software engineer, I am experienced at managing the software development lifecycle,
+        including software testing, debugging, and designing scalable code. Through substantial experience collaborating
+        with others, I have cultivated the ability to lead and train cross-functional, technical teams, enabling us to
+        achieve collective goals and shared visions. I am an active problem-solver, critical thinker, and communicator,
+        consistently uncovering root causes of complex issues via innovative solutions.
+      </p>
     </div>
-    <hr>
-    <div class='mt-4 flex flex-col p-4'>
-      <h2 class='text-daisy-bush text-xl font-semibold'>Latest Posts</h2>
-      {% for post in site.posts limit: 5 %}
-        <div class='flex flex-col space-y-1 rounded-lg border border-white p-4 transition-all ease-in-out hover:border-gray-200 hover:bg-gray-50'>
-          <h3 class='text-daisy-bush font-semibold'>
-            <a href='{{ post.url }}'>{{ post.title }}</a>
-          </h3>
-          <h4 class='text-sm text-gray-400'>{{ post.date | date: '%b %d %Y' }}</h4>
-          <p>{{ post.excerpt }}</p>
+    <div class='w-full space-y-8 px-4 py-10 md:w-1/2'>
+      {% for job in site.data.job_experiences %}
+        <div class='flex w-full flex-col md:flex-row'>
+          <div class='w-full md:w-1/3'>
+            <span class='text-gray-400'>{{ job.start_date }} - {{ job.end_date }}</span>
+          </div>
+          <div class='flex w-full flex-col space-y-2 md:w-2/3'>
+            <h4 class='font-extrabold'>{{ job.company }}</h4>
+            <h5 class='font-extralight text-gray-400'>{{ job.title }}</h5>
+            <p>{{ job.description }}</p>
+            <ul class='flex w-full flex-wrap items-center space-x-2 space-y-1'>
+              {% for skill in job.skills %}
+                <li class='rounded-full border-2 border-slate-950 px-2 py-1 text-xs font-medium leading-5 hover:bg-slate-950 hover:text-white'>
+                  {{ skill }}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       {% endfor %}
-      <div class='w-full text-right'>
+      <div class='w-full pt-[50px] text-right'>
         <a
-          href='/blog'
-          class='hover:text-daisy-bush'
+          class='text-md rounded-lg bg-slate-950 p-4 text-white hover:bg-slate-700'
+          href='{% link /assets/files/resume.pdf %}'
+          >View Full Resume</a
         >
-          <span class='text-md'>View Blog</span>
-          <i class='fa-solid fa-arrow-up-right fa-xs'></i>
-        </a>
       </div>
+    </div>
+  </div>
+  <div class='mx-auto max-w-screen-2xl flex-col'>
+    <div class='px-4'>
+      <h3 class='mb-[0.6em] text-xl font-semibold'>Latest Posts</h3>
+      <ul class='space-y-4'>
+        {% for post in site.posts limit: 5 %}
+          <li>
+            <span class='text-sm text-gray-400'>{{ post.date | date: '%b %d %Y' }}</span>
+            <a href='{{ post.url }}' class='text-lg font-semibold'>{{ post.title }}</a>
+            <p class='mt-[1.25em]'>{{ post.excerpt }}</p>
+            <p class='text-right'>
+              <a href='{{ post.url }}' class='text-sm underline'>Read More</a>
+            </p>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 </section>

@@ -2,22 +2,16 @@
 <html lang='{{ site.lang | default: "en-US" }}' class='scroll-smooth'>
   {% include head.html %}
   <body class='min-h-screen'>
-    {% include main-nav.html %}
-    <div class='mx-auto max-w-screen-xl pt-[100px]'>
-      <main role='main'>
-        <article class='prose md:prose-2xl mx-auto p-4'>
-          <header>
-            <h1 class='text-daisy-bush mb-0'>{{ page.title }}</h1>
-            <p class='mb-8 font-light text-gray-400 sm:text-xl lg:mb-16'>
-              {{ page.date | date: '%b %d %Y' }}
-            </p>
-          </header>
-          {{ page.content }}
-        </article>
-        <div class='w-full p-4'>
-          {% include social-share.html %}
-        </div>
-      </main>
+    {% include main_nav.html %}
+    <main role='main' class='pt-[80px]'>
+      <article class='prose md:prose-2xl mx-auto px-4'>
+        <h1>{{ page.title }}</h1>
+        <span class='text-gray-400'>{{ page.date | date: '%b %d %Y' }}</span>
+        {{ content }}
+      </article>
+    </main>
+    <div class='mt-[50px]'>
+      {% include social_share_nav.html %}
     </div>
     {% include footer.html %}
   </body>

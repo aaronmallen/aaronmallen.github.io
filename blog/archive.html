@@ -1,25 +1,25 @@
 ---
 title: Blog Archive
-layout: default
+layout: page
 ---
-<div class='mx-auto flex min-h-screen max-w-screen-xl flex-col px-8 pt-[100px]'>
-  <header>
-    <h1 class='text-daisy-bush mb-4 text-4xl font-extrabold tracking-tight'>Blog Archive</h1>
+<section class='mx-auto flex min-h-screen max-w-screen-2xl flex-col px-8'>
+  <header class='prose'>
+    <h1>Blog Archive</h1>
   </header>
   {% assign years = site.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}
   {% for year in years %}
     <section class='p-4'>
       <header>
-        <h2 class='text-daisy-bush mb-2 text-xl'>{{ year.name }}</h2>
+        <h2 class='mb-2 text-xl font-semibold'>{{ year.name }}</h2>
       </header>
       <ul>
         {% for post in year.items %}
           <li>
             <span class='mr-4 text-sm text-gray-400'>{{ post.date | date: '%b %d' }}</span>
-            <a href='{{ post.url }}' class='text-daisy-bush hover:underline'>{{ post.title }}</a>
+            <a href='{{ post.url }}' class='underline'>{{ post.title }}</a>
           </li>
         {% endfor %}
       </ul>
     </section>
   {% endfor %}
-</div>
+</section>

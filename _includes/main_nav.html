@@ -1,0 +1,44 @@
+<nav id='main-nav' class='fixed start-0 top-0 z-20 w-full bg-white' role='navigation'>
+  <div class='mx-auto flex max-w-screen-2xl flex-wrap items-center justify-between p-4'>
+    <a
+      href='/#'
+      class='brand flex flex-grow items-center space-x-3 rtl:space-x-reverse'
+      aria-label='Homepage'
+    >
+      {% svg /assets/images/logo.svg id="main-nav-logo" class="h-12 w-auto" %}
+    </a>
+    <div class='flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse'>
+      <button
+        data-collapse-toggle='main-nav'
+        type='button'
+        class='inline-flex h-10 w-10 items-center justify-center p-2 text-sm md:hidden'
+        aria-controls='main-nav'
+        aria-expanded='false'
+      >
+        <span class='sr-only'>Open and close main menu</span>
+        <span id='main-nav-open-icon'><i class='fa-solid fa-bars fa-xl'></i></span>
+        <span id='main-nav-close-icon' class='hidden'><i class='fa-solid fa-xmark fa-xl'></i></span>
+      </button>
+    </div>
+    <div
+      class='hidden w-full items-center justify-between md:order-1 md:flex md:w-auto'
+      id='main-nav-links'
+    >
+      <ul
+        class='mt-4 flex flex-col p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse'
+      >
+        {% for item in site.data.main_nav_items %}
+          <li>
+            <a
+              href='{{ item.link }}'
+              class='block px-3 py-2 font-semibold md:bg-transparent'
+              aria-label='{{ item.aria_label }}'
+            >
+              {{ item.text }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>
