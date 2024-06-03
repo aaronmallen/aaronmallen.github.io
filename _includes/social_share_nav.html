@@ -2,7 +2,7 @@
 {% capture tweet_by %} by @{{ site.author.twitter }}{% endcapture %}
 {% capture thread_by %} by @{{ site.author.threads }}{% endcapture %}
 {% assign share_url = site.url | append: page.url | url_encode %}
-{% assign tweet_hashtags = page.tweet_hashtags || '' | split: "," %}
+{% assign tweet_hashtags = page.tags || [] %}
 {% capture tweet_hashtags_output %}&hashtags={{ tweet_hashtags | array_to_sentence_string: "," | remove: " " }}{% endcapture %}
 
 <div class='flex w-full flex-col items-center justify-center'>

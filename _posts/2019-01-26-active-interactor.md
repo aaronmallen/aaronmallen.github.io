@@ -3,6 +3,10 @@ title: ActiveInteractor
 author: Aaron Allen <hello@aaronmallen.me>
 layout: post
 tweet_hashtags: activeinteractor, ruby
+tags:
+  - activeinteractor
+  - ruby
+  - ruby on rails
 ---
 
 This weekend I released v1.0.0 of [ActiveInteractor], an implementation of the [command pattern] for Ruby with

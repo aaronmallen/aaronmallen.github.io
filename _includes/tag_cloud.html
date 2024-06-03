@@ -1,0 +1,14 @@
+<ul class='flex w-full flex-wrap gap-4'>
+  {% capture tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+  {% assign tags = tags | split: ',' | sort %}
+  {% for tag in tags %}
+    <li>
+      <a
+        href='/blog/{{ tag | slugify }}'
+        class='rounded-full border-2 border-slate-950 px-2 py-1 text-sm font-medium leading-5 hover:bg-slate-950 hover:text-white'
+      >
+        <span>{{ tag }}</span>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

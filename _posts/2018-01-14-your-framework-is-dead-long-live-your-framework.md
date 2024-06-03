@@ -2,6 +2,8 @@
 title: Your Framework is Dead; Long Live Your Framework
 author: Aaron Allen <hello@aaronmallen.me>
 layout: post
+tags:
+  - opinion
 ---
 
 Let me preface this with the fact that I am primarily a Rails Developer. Inherently this typically means I have a lot of

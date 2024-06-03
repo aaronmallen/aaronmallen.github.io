@@ -3,6 +3,8 @@ layout: post
 title: New Site, New Job
 excerpt_separator: '<!--more-->'
 date: 2024-06-03 00:00 -0000
+tags:
+  - personal updates
 ---
 
 My adventures at [StreetEasy](https://streeteasy.com) came to a close on March 12 of this year. During my tenure as a
