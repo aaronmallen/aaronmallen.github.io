@@ -1,22 +1,19 @@
+{% assign years = page.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}
+
 <!doctype html>
 <html lang='{{ site.lang | default: "en-US" }}' class='scroll-smooth'>
   {% include head.html %}
   <body class='min-h-screen'>
     {% include main_nav.html %}
-    <main role='main' class='min-h-[calc(100vh-415px)] pt-[80px]'>
-      <section class='mx-auto flex min-h-[calc(100vh-495px)] max-w-screen-2xl flex-col px-8'>
-        <header class='prose mx-auto'>
-          <h1>
-            <i class='fa-regular fa-tag'></i>
-            <span>{{ page.tag }}</span>
-          </h1>
-        </header>
-        {% assign years = page.posts | group_by_exp: 'post', "post.date | date: '%Y'" %}
-        <div class='flex-grow p-4'>
+    <main role='main' class='h-full-page'>
+      <section id='{{page.tag}}-archive' class='h-full-page mx-auto flex max-w-screen-2xl flex-col px-8 md:-mt-[80px]'>
+        <h1 class='mb-4 text-center text-4xl font-extrabold tracking-tight'>
+          <i class='fa-regular fa-tag'></i>
+          <span>{{ page.tag }}</span>
+        </h1>
+        <div class='flex-grow space-y-4 px-4'>
           {% for year in years %}
-            <header>
-              <h2 class='mb-2 text-xl font-semibold'>{{ year.name }}</h2>
-            </header>
+            <h2 class='mb-2 text-xl font-semibold'>{{ year.name }}</h2>
             <ul>
               {% for post in year.items %}
                 <li>
@@ -28,9 +25,7 @@
           {% endfor %}
         </div>
         <div class='flex flex-col p-4'>
-          <header>
-            <h2 class='mb-2 mb-4 text-xl font-semibold'>Tags</h2>
-          </header>
+          <h2 class='mb-4 text-xl font-semibold'>Tags</h2>
           {% include tag_cloud.html %}
         </div>
       </section>

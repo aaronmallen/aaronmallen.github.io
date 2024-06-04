@@ -1,79 +1,117 @@
+{% assign title = page.title | default: layout.title %}
+{% capture tweet_by %} by @{{ site.author.twitter }}{% endcapture %}
+{% capture thread_by %} by @{{ site.author.threads }}{% endcapture %}
+{% assign share_url = site.url | append: page.url | url_encode %}
+{% assign tweet_hashtags = page.tags %}
+{% capture tweet_hashtags_output %}&hashtags={{ tweet_hashtags | array_to_sentence_string: "," | remove: " " }}{% endcapture %}
+
 <!doctype html>
 <html lang='{{ site.lang | default: "en-US" }}' class='scroll-smooth'>
   {% include head.html %}
   <body class='min-h-screen'>
-    {% include main_nav.html %}
     {% include scroll_to_top_button.html %}
-    <main role='main' class='min-h-[calc(100vh-415px)] pt-[80px]'>
-      <article class='prose md:prose-2xl mx-auto px-4'>
-        <h1 class='border-b-4 border-dotted border-slate-950'>{{ page.title }}</h1>
-        <div class='flex w-full flex-row items-center'>
-          <span class='w-1/2 text-gray-400'>{{ page.date | date: '%b %d %Y' }}</span>
-          <span class='w-1/2 text-right text-sm text-gray-400'>
-            {% include read_time.html content=content %}
-          </span>
-        </div>
-        <div class='not-prose my-4 flex flex-wrap'>
-          <ul class='flex flex-wrap gap-4'>
-            {% for tag in page.tags %}
-              <li>
-                <a href='/blog/{{ tag | slugify }}' class='text-sm'>
-                  <i class='fa-regular fa-tag'></i>
-                  <span>{{ tag }}</span>
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-        {{ content }}
-      </article>
-      <div class='mt-[50px]'>
-        {% include social_share_nav.html %}
-      </div>
+    {% include main_nav.html %}
+    <main role='main' class='h-full-page'>
+      <section id='article' class='mx-auto max-w-screen-2xl px-4'>
+        {% include article.html article=page %}
+      </section>
+      <section id='share-nav' class='mt-12 flex flex-col items-center justify-center space-y-4'>
+        <p class='text-sm font-extralight'>Share This</p>
+        <ul class='flex flex-row gap-2'>
+          <li>
+            <a
+              rel='noopener'
+              target='_blank'
+              href='https://www.linkedin.com/sharing/share-offsite/?url={{ share_url }}&title={{ title | url_encode }}'
+              class='text-slate-400 hover:text-slate-900'
+              aria-label='Share on LinkedIn'
+            >
+              <i class='fa-brands fa-linkedin fa-xl' aria-hidden='true' title='LinkedIn'></i>
+            </a>
+          </li>
+          <li>
+            <a
+              rel='noopener'
+              target='_blank'
+              href='https://twitter.com/intent/tweet?url={{ share_url }}&text={{ title | append: tweet_by | url_encode }}{{ tweet_hashtags_output }}'
+              class='text-slate-400 hover:text-slate-900'
+              aria-label='Share on Twitter'
+            >
+              <i class='fa-brands fa-x-twitter fa-xl' aria-hidden='true' title='Twitter'></i>
+            </a>
+          </li>
+          <li>
+            <a
+              rel='noopener'
+              target='_blank'
+              href='https://www.threads.net/intent/post?text={{ title | append: thread_by | url_encode }}%20{{ share_url }}'
+              class='text-slate-400 hover:text-slate-900'
+              aria-label='Share on Threads'
+            >
+              <i class='fa-brands fa-threads fa-xl' aria-hidden='true' title='Threads'></i>
+            </a>
+          </li>
+          <li>
+            <a
+              rel='noopener'
+              target='_blank'
+              href='mailto:?subject={{title | append: ' By Aaron Allen' | url_encode}}&body=Check out this article: {{ share_url }}'
+              class='text-slate-400 hover:text-slate-900'
+              aria-label='Share via Email'
+            >
+              <i class='fa-regular fa-envelope fa-xl' aria-hidden='true' title='Email'></i>
+            </a>
+          </li>
+        </ul>
+      </section>
       {% if site.related_posts.size >= 1 %}
-        <div class='w-full'>
-          <div
-            class='-mb-[1px] mt-[100px] h-[100px] w-full bg-slate-950 [clip-path:polygon(0_100%,100%_0,100%_100%)]'
-          ></div>
-          <div class='bg-slate-950 px-4 py-10'>
-            <h3 class='mb-[0.6em] text-center text-xl font-semibold text-white'>Related Posts</h3>
-            <ul class='mx-auto flex w-full flex-col justify-center gap-10 md:flex-row md:flex-wrap'>
-              {% for post in site.related_posts limit: 3 %}
-                <li class='flex w-full flex-col space-y-2 rounded-lg bg-white p-4 md:w-1/4'>
-                  <div class='flex flex-row'>
-                    <span class='w-1/2 text-sm'>{{ post.date | date: '%b %d %Y' }}</span>
-                    <span class='w-1/2 text-right text-sm'>
-                      {% include read_time.html content=post.content %}
-                    </span>
-                  </div>
-                  <a href='{{ post.url }}' class='text-lg font-semibold'>{{ post.title }}</a>
-                  <div class='flex flex-grow items-start justify-start'>{{ post.excerpt }}</div>
-                  <div class='text-right'>
-                    <a href='{{ post.url }}' class='text-sm underline'>Read More</a>
-                  </div>
-                </li>
-              {% endfor %}
-            </ul>
+        <section id='related-articles' aria-labelledby='related-articles-title'>
+          <div class='-mb-[1px] mt-12 h-[100px] bg-slate-950 [clip-path:polygon(0_100%,100%_0,100%_100%)]'></div>
+          <div class='bg-slate-950 py-10'>
+            <div class='mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8'>
+              <h3 id='related-articles-title' class='mb-6 text-center text-xl font-semibold text-white'>
+                Related Articles
+              </h3>
+              <ul class='flex flex-col items-center justify-center gap-4 md:flex-row md:items-stretch'>
+                {% for post in site.related_posts limit: 3 %}
+                  <li class='flex w-full flex-grow flex-col space-y-4 rounded-lg bg-white px-4 py-6 md:w-1/3'>
+                    <div class='flex flex-row justify-between text-sm'>
+                      <span class='w-1/2'>
+                        {{ post.date | date: '%b %d %Y' }}
+                      </span>
+                      <span class='w-1/2 text-right'>
+                        {% include read_time.html content=post.content %}
+                      </span>
+                    </div>
+                    <h4>
+                      <a href='{{ post.url }}' aria-label='Read {{ post.title }}' class='text-lg font-semibold'>
+                        {{ post.title }}
+                      </a>
+                    </h4>
+                    <p class='flex-grow'>{{ post.excerpt | strip_html }}</p>
+                    <div class='flex justify-end'>
+                      <a href='{{ post.url }}' class='text-right text-sm underline' aria-label='Read {{ post.title }}'>
+                        Read More
+                      </a>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
-          <div class='-mt-[1px] h-[100px] w-full bg-slate-950 [clip-path:polygon(0_100%,0_0,100%_0)]'></div>
-        </div>
+          <div class='-mt-[1px] mb-24 h-[100px] bg-slate-950 [clip-path:polygon(0_100%,0_0,100%_0)]'></div>
+        </section>
       {% endif %}
-      <div class='mx-auto mt-[50px] flex max-w-screen-2xl flex-row items-center justify-center space-x-4'>
-        <a
-          href='javascript:history.back()'
-          class='rounded-lg bg-slate-950 px-4 py-3 text-sm text-white no-underline hover:bg-slate-800'
-          aria-label='Go Back'
-        >
-          <span>Go Back</span>
-        </a>
-        <a
-          href='/blog/archive'
-          class='text-md rounded-lg bg-slate-950 px-4 py-3 text-sm text-white hover:bg-slate-800'
-          aria-label='View Archive'
-        >
-          <span>View Archive</span>
-        </a>
-      </div>
+      <nav role='navigation' aria-label='Blog Navigation' class='mt-12'>
+        <ul class='flex flex-row items-center justify-center'>
+          <li>
+            <a href='javascript:history.back()' class='button-primary button-lg' aria-label='Go back'> Go Back </a>
+          </li>
+          <li>
+            <a href='/blog/archive' class='button-primary button-lg' aria-label='View Archive'> View Archive </a>
+          </li>
+        </ul>
+      </nav>
     </main>
     {% include footer.html %}
   </body>

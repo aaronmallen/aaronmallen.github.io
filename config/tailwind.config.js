@@ -39,6 +39,13 @@ module.exports = {
           'Segoe UI Symbol',
         ],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '1536px',
+          },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
