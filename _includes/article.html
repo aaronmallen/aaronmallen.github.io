@@ -15,7 +15,7 @@
   </div>
   <div class='not-prose flex flex-wrap gap-4 py-4'>
     {% for tag in article.tags %}
-      <a href='/tags/{{ tag | slugify }}' class='text-sm'>
+      <a href='/blog/{{ tag | slugify }}' class='text-sm'>
         <i class='fa-regular fa-tag'></i>
         <span>{{ tag }}</span>
       </a>
