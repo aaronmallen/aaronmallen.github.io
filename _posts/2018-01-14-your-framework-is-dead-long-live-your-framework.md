@@ -10,13 +10,13 @@ Let me preface this with the fact that I am primarily a Rails Developer. Inheren
 respect for [David Heinemeier Hansson (DHH)][1] both as an engineer and as a person. That being said, a few months ago I
 saw him perpetuate an ongoing issue in the developer community and it made my heart sink a little bit.
 
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 <blockquote class="twitter-tweet" data-lang="en">
   <p lang="en" dir="ltr">
     Ass In Chief at NodeSource, ladies and gentlemen 🙄 <a href="https://t.co/7dt0J4QpyR">https://t.co/7dt0J4QpyR</a>
   </p>&mdash; DHH (@dhh)
   <a href="https://twitter.com/dhh/status/935577543519830016?ref_src=twsrc%5Etfw">November 28, 2017</a>
 </blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 To understand this tweet you have to understand the climate of the Rails community at the time, and really, currently
 still. Many have claimed that both Ruby and Ruby On Rails have been on a downward spiral towards obsolescence largely

@@ -10,11 +10,23 @@ body {
   @apply font-poppins;
 }
 
+.button-primary {
+  @apply border-2 border-white bg-slate-950 text-white transition-all duration-200 ease-in-out hover:border-slate-950 hover:bg-transparent hover:text-slate-950;
+
+  &.button-lg {
+    @apply rounded-lg px-4 py-3;
+  }
+}
+
 code,
 kbd,
 samp,
 pre {
   @apply font-fira-code;
+}
+
+.h-full-page {
+  @apply min-h-[calc(100vh-455px)] pt-[80px] md:min-h-[calc(100vh-415px)];
 }
 
 .highlight {

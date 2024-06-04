@@ -1,0 +1,39 @@
+{% assign article = include.article %}
+<article class='prose {{ include.class }}'>
+  {% if include.link %}
+    <a href='{{ article.url | relative_url }}' class='no-underline'>
+      <h1 class='border-b-4 border-dotted border-slate-950'>{{ article.title }}</h1>
+    </a>
+  {% else %}
+    <h1 class='border-b-4 border-dotted border-slate-950'>{{ article.title }}</h1>
+  {% endif %}
+  <div class='flex w-full flex-row items-center'>
+    <span class='w-1/2 font-extralight'>{{ article.date | date: '%b %d %Y' }}</span>
+    <span class='w-1/2 text-right text-sm font-extralight'>
+      {% include read_time.html content=article.content %}
+    </span>
+  </div>
+  <div class='not-prose flex flex-wrap gap-4 py-4'>
+    {% for tag in article.tags %}
+      <a href='/tags/{{ tag | slugify }}' class='text-sm'>
+        <i class='fa-regular fa-tag'></i>
+        <span>{{ tag }}</span>
+      </a>
+    {% endfor %}
+  </div>
+  <div>
+    {{ article.content }}
+  </div>
+  {% if include.link %}
+    <div>
+      <a
+        href='{{ article.url }}'
+        class='p-2 no-underline'
+        aria-label='View {{ article.title}}'
+      >
+        <span class='sr-only'>View {{ article.title }}</span>
+        <i class='fa-solid fa-link'></i>
+      </a>
+    </div>
+  {% endif %}
+</article>

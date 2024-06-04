@@ -1,8 +1,8 @@
-<div class='flex w-full flex-col'>
-  <div class='-mb-[1px] mt-[100px] h-[100px] w-full bg-slate-950 [clip-path:polygon(0_100%,100%_0,100%_100%)]'></div>
-  <footer class='w-full bg-slate-950 text-white'>
+<footer class='flex w-full flex-col'>
+  <div class='-mb-[1px] mt-[100px] h-[100px] bg-slate-950 [clip-path:polygon(0_100%,100%_0,100%_100%)]'></div>
+  <div class='bg-slate-950 text-white'>
     <div class='mx-auto flex max-w-screen-2xl flex-col place-items-end gap-4 py-10 md:flex-row'>
-      <div class='w-full text-center md:w-1/2 md:text-left'>
+      <nav class='w-full text-center md:w-1/2 md:text-left' role='navigation' aria-label='Footer Navigation'>
         <ul class='px-4'>
           {% for item in site.data.footer_nav_items %}
             <li>
@@ -18,12 +18,12 @@
             </div>
           </li>
         </ul>
-      </div>
+      </nav>
       <div class='w-full text-center md:w-1/2'>
         <span class='text-sm'>
           &copy; Copyright 2018 - {{ site.time | date: '%Y' }} Aaron Allen. All Rights Reserved.
         </span>
       </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer>
