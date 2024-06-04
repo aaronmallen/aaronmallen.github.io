@@ -94,24 +94,4 @@ permalink: /about
       </div>
     </div>
   </div>
-  <div class='mx-auto max-w-screen-2xl flex-col px-4'>
-    <h3 class='mb-[0.6em] text-xl font-semibold'>Latest Posts</h3>
-    <ul class='mx-auto flex w-full flex-col justify-center gap-10 md:flex-row md:flex-wrap'>
-      {% for post in site.posts limit: 3 %}
-        <li class='flex w-full flex-col space-y-2 rounded-lg border-gray-200 bg-gray-50 p-4 md:w-1/4'>
-          <div class='flex flex-row'>
-            <span class='w-1/2 text-sm'>{{ post.date | date: '%b %d %Y' }}</span>
-            <span class='w-1/2 text-right text-sm'>
-              {% include read_time.html content=post.content %}
-            </span>
-          </div>
-          <a href='{{ post.url }}' class='text-lg font-semibold'>{{ post.title }}</a>
-          <div class='flex flex-grow items-start justify-start'>{{ post.excerpt }}</div>
-          <div class='text-right'>
-            <a href='{{ post.url }}' class='text-sm underline'>Read More</a>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
 </section>
