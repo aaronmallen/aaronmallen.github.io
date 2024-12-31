@@ -3,6 +3,16 @@
   link: https://www.github.com/aaronmallen
   aria_label: Aaron Allen's GitHub Profile
 
+- name: Bluesky
+  icon: fa-bluesky
+  link: https://bsky.app/profile/aaronmallen.dev
+  aria_label: Aaron Allen's Bluesky Profile
+
+- name: Ruby.social
+  icon: fa-mastodon
+  link: https://ruby.social/@aaronmallen
+  aria_label: Aaron Allen's Ruby.social Profile
+
 - name: LinkedIn
   icon: fa-linkedin
   link: https://www.linkedin.com/in/aaronmallen
